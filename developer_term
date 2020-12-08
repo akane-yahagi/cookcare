@@ -1,0 +1,101 @@
+# Developer Term - cookcare -
+
+## アイデア出し
+クックパッドもどき
+自分のレシピを保存
+他人のレシピを閲覧
+他人のレシピを保存して自分流にアレンジしたものを保存
+食事をカレンダー管理できる
+## ペルソナの作成(≠ターゲット)
+ペルソナは「自分のサービスのユーザーとして具体的に仮定した人物像」
+ターゲットは年齢/性別/居住地/職業/未既婚などの対象ユーザーの属性情報
+
+
+|       | 1人目 | 2人目 | 3人目 |
+|:------|:------|:------|:------|
+| Name | Akane |      |       |
+| Age | 26 | 18 | 24 |
+| Gender | Female | Female | Male |
+| Hobby | stretching | part-time-job | work out |
+| Problem1 |自炊するのが久しぶり|初めての一人暮らしで家事全般に苦労している|外食ばかりで支出が増えた|
+| Problem2 |自分だけの料理でないため栄養を考えないといけない|献立考えるのが面倒|でも料理するのだるい|
+| Problem3 |料理のレパートリーがない(というか、ほぼ忘れた)|親のレシピを記録しときたい|就職して急激におじさん体形になった|
+| Things she/he wants to do |健康維持のためヨガとデトックススープ生活|知り合いを増やす|ゴルフ|
+
+## リーンキャンパスの作成
+[google_spreadsheets](https://docs.google.com/spreadsheets/d/1HcA1IaqUtmctMRi5GpGJrq3DTJ7bU_LwPKrCMzZWLo4/edit#gid=1709318117)
+
+## エレベータピッチの作成
+献立選びに苦労したくない社会人/栄養の偏りを防ぎたい主婦・主夫向けの
+cookcareというプロダクトは
+レシピサイトかつ記録サイトです。
+
+個人レシピの記録(投稿)、他人レシピの閲覧、材料検索ができ
+クックパッドとは違い
+他人のレシピを自己流にアレンジ・保存でき、栄養管理のために作った日をカレンダー管理できる機能が備わっています。
+
+## ユーザーストーリーマッピング
+メインのフロー
+1. アカウント作成
+2. ログイン
+3. レシピを記録(投稿)
+4. 材料を検索
+5. レシピの選択
+6. 作り終わったら(日付選択可)完成ボタンを押し、コメント記入に移る
+7. そのレシピをコメント付きでお気に入り登録or作っただけ登録かする
+8. カレンダー機能で食事の記録を確認する
+9. アカウントをフォロー(いらない気がする)
+
+詳細
+- 自分の投稿を編集できる
+- 自分の投稿を削除できる
+- 材料の含まない検索ができる
+- アカウントのフォロー解除ができる
+- 外食の場合もカレンダーに記録できる
+
+## MVP(Minimum Viable Product)選定
+- ログイン/ログアウト機能
+- 投稿機能(レシピ・写真)
+- 検索機能
+- フォロー機能
+- 編集機能
+- 保存機能
+- カレンダー機能
+- 投稿削除機能
+- お気に入り機能
+
+## ワイヤーフレームの作成
+[ワイヤーフレーム_1](https://app.moqups.com/gNFyVRoKvE/edit/page/a20510f31)
+[ワイヤーフレーム_2](https://app.moqups.com/gNFyVRoKvE/edit/page/a20510f31)
+
+ログアウトボタンは左のDietの下に常に表示
+#### top_page
+[![top](https://i.gyazo.com/4bef487dd5bffbcbe11192975d9fba10.png)](https://gyazo.com/4bef487dd5bffbcbe11192975d9fba10)
+
+#### Sign_up
+[![signup](https://i.gyazo.com/37c4cf4075fe5d00ac10d800e6b4f069.png)](https://gyazo.com/37c4cf4075fe5d00ac10d800e6b4f069)
+
+
+#### Sign_in
+[![signin](https://i.gyazo.com/ee4f7849772d8843d5881adc5014909d.png)](https://gyazo.com/ee4f7849772d8843d5881adc5014909d)
+
+#### index(最初は新着順, 検索かけたら引っかかってfavorites多い順)
+[![index](https://i.gyazo.com/4767d64dc97268dc8e2513aa0843bbf1.png)](https://gyazo.com/4767d64dc97268dc8e2513aa0843bbf1)
+
+#### my_page_list
+[![my_page_list](https://i.gyazo.com/4c891fce810c32cf1677d5d71d03a2a9.png)](https://gyazo.com/4c891fce810c32cf1677d5d71d03a2a9)
+
+#### new_recipeとmy_page_list_edit
+[![new_recipe](https://i.gyazo.com/f3a545bb73eafa604cacce0154e05dbd.png)](https://gyazo.com/f3a545bb73eafa604cacce0154e05dbd)
+
+#### show(他人のレシピ閲覧してコメント記入して日付選択してcooked/favprite登録する, 2回目以降はコメント反映されて表示)
+[![show](https://i.gyazo.com/02898b3b047d8c20ae773356c20e2fef.png)](https://gyazo.com/02898b3b047d8c20ae773356c20e2fef)
+
+#### diet_page
+[![diet](https://i.gyazo.com/1d428b0058010d578c5a8b4727826e09.png)](https://gyazo.com/1d428b0058010d578c5a8b4727826e09)
+
+
+
+## ER図の作成
+[ER図の作成方法](https://it-koala.com/entity-relationship-diagram-1897?_fsi=VQYtGbfO)
+[ER図](https://app.diagrams.net/#G1D2cVAYfEzxEu5plwaZAoKNBYc4Pdz3LE)
