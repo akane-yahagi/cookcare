@@ -1,0 +1,31 @@
+<body>
+    <div class="sessions-wrapper clearfix">
+        <div class="sessions-left-container">
+            <div class="sessions-left-text">
+                <p>Search for your dishes</p>
+                <p>Share your recipes</p>
+                <p>Record your eating habits</p>
+            </div>
+        </div>
+        
+        <div class="sessions-right-container">
+            <div class="greeting">
+                <%= link_to 'Welcome to Cookcare', root_url %>
+            </div>
+            <image class="sessions-home-image"></image>
+            <div class="sessions-confirm clearfix">
+                <div class="sessions-info">
+                    <p>email</p>
+                    <input class="sessions-blank"></input>
+                </div>
+                <div class="sessions-info">
+                    <p>password</p>
+                    <input class="sessions-blank"></input>
+                </div>
+            </div>
+            <div class="sessions-account-section">
+                <%= link_to 'Sign in', recipes_path, class: "btn" %>
+            </div>
+        </div>
+    </div>
+</body>

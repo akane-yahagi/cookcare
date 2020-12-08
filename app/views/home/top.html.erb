@@ -1,0 +1,38 @@
+<body>
+    <div class="top-wrapper clearfix">
+        <div class="left-container">
+            <div class="left-text">
+                <p>Search for your dishes</p>
+                <p>Share your recipes</p>
+                <p>Record your eating habits</p>
+            </div>
+        </div>
+        
+        <div class="right-container">
+            <div class="login clearfix">
+                <div class="login-info">
+                    <p>email or Username</p>
+                    <input class="blank" type="text" name="email">
+                </div>
+                <div class="login-info">
+                    <p>Password</p>
+                    <input class="blank" type="password" name="password">
+                </div>
+                <div class="btn-section">
+                    <%= link_to 'Log in', '#', class: 'mini-btn' %>
+                </div>
+            </div>
+            
+            <div class="greeting">
+                <p>Welcome to Cookcare</p>
+            </div>
+            <img class="home-image"></img>
+            
+            <div class="account-section">
+                <p>Cookcareをはじめよう</p>
+                <%= link_to 'Create an Account', new_user_path, class: "btn" %>
+                <%= link_to 'Sign In', sessions_new_path, class: "btn" %>
+            </div>
+        </div>
+    </div>
+</body>
