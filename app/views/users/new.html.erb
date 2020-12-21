@@ -13,23 +13,25 @@
                 <%= link_to 'Welcome to Cookcare', root_url %>
             </div>
             <image class="users-home-image"></image>
-            <div class="users-confirm clearfix">
-                <div class="confirm-info">
-                    <p>name</p>
-                    <input class="users-blank"></input>
-                    <p>email</p>
-                    <input class="users-blank"></input>
+            <%= form_for @user do |f| %>
+                <div class="users-confirm clearfix">
+                    <div class="confirm-info">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: 'users-blank' %>
+                        <%= f.label :email %>
+                        <%= f.text_field :email, class: 'users-blank' %>
+                    </div>
+                    <div class="confirm-info">
+                        <%= f.label :password %>
+                        <%= f.password_field :password, class: 'users-blank' %>
+                        <%= f.label :password_confirmation %>
+                        <%= f.password_field :password_confirmation, class: 'users-blank' %>
+                    </div>
                 </div>
-                <div class="confirm-info">
-                    <p>password</p>
-                    <input class="users-blank"></input>
-                    <p>password confirmation</p>
-                    <input class="users-blank"></input>
+                <div class="users-account-section">
+                    <%= f.submit "Create an Account", class: 'btn' %>
                 </div>
-            </div>
-            <div class="users-account-section">
-                <%= link_to 'Create an Account', sessions_new_path, class: "btn" %>
-            </div>
+            <% end %>
         </div>
     </div>
 </body>
