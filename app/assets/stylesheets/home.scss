@@ -65,6 +65,7 @@ body {
       margin-right: 1.5vw;
       
       .blank {
+        margin-top: 1vh;
         height: 5vh;
         width: 16vw;
         background-color: rgba(0, 0, 0, 0.1);
@@ -73,7 +74,7 @@ body {
     }
     
     .btn-section {
-      padding-top: 4vh;
+      padding-top: 2vh;
       width: 5vw;
       float: left;
       text-align: right;
@@ -83,6 +84,7 @@ body {
         color: white;
         background-color: black;
         width: 5vw;
+        height: 5vh;
         border-radius: 30px;
         padding: 1vh 1vw;
       }

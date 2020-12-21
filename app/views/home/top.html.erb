@@ -10,17 +10,19 @@
         
         <div class="right-container">
             <div class="login clearfix">
-                <div class="login-info">
-                    <p>email or Username</p>
-                    <input class="blank" type="text" name="email">
-                </div>
-                <div class="login-info">
-                    <p>Password</p>
-                    <input class="blank" type="password" name="password">
-                </div>
-                <div class="btn-section">
-                    <%= link_to 'Log in', '#', class: 'mini-btn' %>
-                </div>
+                <%= form_for :session, url: login_path do |f| %>
+                    <div class="login-info">
+                        <%= f.label :email %>
+                        <%= f.text_field :email, class: "blank" %>
+                    </div>
+                    <div class="login-info">
+                        <%= f.label :password %><br>
+                        <%= f.password_field :password, class: "blank" %>
+                    </div>
+                    <div class="btn-section">
+                        <%= f.submit 'Log in', class: 'mini-btn' %>
+                    </div>
+                <% end %>
             </div>
             
             <div class="greeting">
