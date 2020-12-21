@@ -16,16 +16,16 @@
             <%= form_for :session, url: login_path do |f| %>
                 <div class="sessions-confirm clearfix">
                     <div class="sessions-info">
-                        <%= f.label :email %>
+                        <%= f.label :email %><br>
                         <%= f.text_field :email, class: "sessions-blank" %>
                     </div>
                     <div class="sessions-info">
-                        <%= f.label :password %>
+                        <%= f.label :password %><br>
                         <%= f.password_field :password, class: "sessions-blank" %>
                     </div>
-                    <div class="sessions-account-section">
-                        <%= f.submit 'Sign in', class: "btn" %>
-                    </div>
+                </div>
+                <div class="sessions-account-section">
+                    <%= f.submit 'Sign in', class: "btn" %>
                 </div>
             <% end %>
         </div>
