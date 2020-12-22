@@ -1,5 +1,5 @@
 </body>
-    <%= form_for :recipes, url: new_recipe_path do |f| %>
+    <%= form_for @recipe do |f| %>
         <div class="nav">
             <%= link_to "Cookcare", recipes_path, class: "title" %>
             <%= f.submit "Post", class: "new-btn" %>
