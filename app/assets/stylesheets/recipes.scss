@@ -1,0 +1,127 @@
+html, body {
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+    font-family: Helvetica;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.nav {
+    width: 100vw;
+    height: 8vh;
+    background-color: rgba(230, 180, 40, 0.9);
+    border-bottom: 1px solid #787878;
+
+    
+    .title {
+        display: block;
+        height: 5vh;
+        font-family: 'Playball';
+        font-size: 3.2rem;
+        font-weight: bold;
+        margin-top: 1.5vh;
+        float: left;
+        
+    }
+    
+    .new-btn {
+        float: right;
+        font-size: 1.2rem;
+        color: white;
+        background-color: black;
+        width: 5vw;
+        height: 5vh;
+        border-radius: 30px;
+        padding: 1vh 1vw;
+        margin-top: 1.5vh;
+        margin-right: 1vw;
+    }
+}
+
+.recipe-wrapper {
+    width: 100vw;
+    height: 92vh;
+    
+    .side-nav {
+        width: 15%;
+        height: 100%;
+        border-right: 1px solid #787878;
+        float: left;
+    }
+    
+    .new-wrapper {
+        width: 85%;
+        height: 100%;
+        float: right;
+        
+        .new-container {
+            border: 1px solid #787878;
+            background-color: #fff;
+            width: 98%;
+            height: 98%;
+            margin: 0.5% 1%;
+            
+            .new-left-container {
+                float:left;
+                width: 45%;
+                
+                .recipe-blank {
+                    height: 6vh;
+                    width: 96%;
+                    margin-top: 1.5vh;
+                    margin-left: 2%;
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border: none;
+                }
+                
+                .ingredient-blank {
+                    height: 72vh;
+                    width: 96%;
+                    margin-top: 1.5vh;
+                    margin-left: 2%;
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border: none;
+                }
+            }
+            
+            .new-right-container {
+                width: 55%;
+                float: right;
+
+                .recipe-blank {
+                    height: 6vh;
+                    width: 98%;
+                    margin-top: 1.5vh;
+                    margin-left: 1%;
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border: none;
+                }
+                
+                .step-blank {
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border: none;
+                    height: 79.5vh;
+                    width: 98%;
+                    margin-top: 1.5vh;
+                    margin-left: 1%;
+                }
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+</body>
+    <%= form_for :recipes, url: new_recipe_path do |f| %>
+        <div class="nav">
+            <%= link_to "Cookcare", recipes_path, class: "title" %>
+            <%= f.submit "Post", class: "new-btn" %>
+            <%= f.submit "Save", class: "new-btn" %>
+            <%= f.submit "Delete", class: "new-btn" %>
+        </div>
+        <div class="recipe-wrapper clearfix">
+            <div class="side-nav"></div>
+            <div class="new-wrapper">
+                <div class="new-container clearfix">
+                    <div class="new-left-container">
+                        
+                        <%= f.text_field :title, class: "recipe-blank" %><br>
+                        <%= f.text_field :recipe_image, class: "recipe-blank" %><br>
+                        <%= f.text_field :ingredient, class: "ingredient-blank" %>
+                    </div>
+                    <div class="new-right-container">
+                        <%= f.text_field :category, class: "recipe-blank" %><br>
+                        <%= f.text_field :step, class: "step-blank" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<body>
+    
