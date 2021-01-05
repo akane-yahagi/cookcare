@@ -5,7 +5,8 @@ class Recipe < ApplicationRecord
     
     belongs_to :user
     has_many :ingredients
-    has_many :recipe_ingredients, through: :recipes, source: 'ingredient'
+    #accepts_nested_attributes_for :recipe_ingredients
+    has_many :recipe_ingredients
     has_many :categories
     has_many :recipe_categories, through: :recipes, source: 'category'
 end

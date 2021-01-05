@@ -1,2 +1,8 @@
 <div class="nav"></div>
-<div class="side-nav"></div>
+<div class="side-nav">
+    <%= form_for :session, url: logout_path, method: :delete do |f| %>
+        <div class="btn-section">
+            <%= f.submit 'Log in', class: 'mini-btn' %>
+        </div>
+    <% end %>
+</div>
