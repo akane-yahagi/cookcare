@@ -4,8 +4,8 @@ class RecipesController < ApplicationController
   
   def new
     @recipe = Recipe.new
-    5.times { @recipe.ingredients.build }
-    5.times { @recipe.recipe_ingredients.build }
+    10.times { @recipe.ingredients.build }
+    10.times { @recipe.recipe_ingredients.build }
     1.times { @recipe.categories.build }
   end
   

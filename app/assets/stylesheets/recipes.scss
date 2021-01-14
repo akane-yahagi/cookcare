@@ -89,14 +89,37 @@ body {
                     border: none;
                 }
                 
-                .ingredient-blank {
+                .ingredient-box {
                     height: 72vh;
                     width: 96%;
                     margin-top: 1.5vh;
                     margin-left: 2%;
                     background-color: rgba(0, 0, 0, 0.05);
                     border: none;
+                    
+                    .ingredient-blank {
+                        /*height: 72vh;
+                        width: 96%;*/
+                        height: 5vh;
+                        width: 60%;
+                        margin-top: 1.5vh;
+                        /*margin-left: 2%;
+                        background-color: rgba(0, 0, 0, 0.05);*/
+                        border: none;
+                        /*float: left;*/
+                    }
+                    .quantity-blank {
+                        /*height: 72vh;
+                        width: 96%;*/
+                        height: 5vh;
+                        width: 35%;
+                        margin-top: 1.5vh;
+                        /*background-color: rgba(0, 0, 0, 0.05);*/
+                        border: none;
+                        /*float: right;*/
+                    }
                 }
+
             }
             
             .new-right-container {

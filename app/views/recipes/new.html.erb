@@ -13,19 +13,22 @@
                     <div class="new-left-container">
                         
                         <%= f.text_field :title, placeholder: "Title", class: "recipe-blank" %><br>
-                        <%= f.text_field :recipe_image, placeholder: "Photos", class: "recipe-blank" %><br>
-                        <%= f.fields_for :ingredients do |ingredient_fields| %>
-                            <%= ingredient_fields.text_field :name, placeholder: "Ingredients", class: "ingredients-blank" %>
-                        <% end %>
-                        <%= f.fields_for :recipe_ingredients do |recipe_ingredient_fields| %>
-                            <%= recipe_ingredient_fields.text_field :quantity, placeholder: "quantity", class: "ingredients-blank" %>
-                        <% end %>
+                        <%= f.file_field :recipe_image, placeholder: "Photos", class: "recipe-blank" %><br>
+                        <div class="ingredient-box clearfix">
+                            <%= f.fields_for :ingredients do |ingredient_fields| %>
+                                <%= ingredient_fields.text_field :name, placeholder: "Ingredients", class: "ingredient-blank" %><br>
+                            <% end %>
+                            <%= f.fields_for :recipe_ingredients do |recipe_ingredient_fields| %>
+                                <%= recipe_ingredient_fields.text_field :quantity, placeholder: "quantity", class: "quantity-blank" %><br>
+                            <% end %>
+                        </div>
                     </div>
                     <div class="new-right-container">
                         <%= f.fields_for :categories do |category_fields| %>
                             <%= category_fields.text_field :name, placeholder: "Category", class: "recipe-blank" %>
                         <% end %>
-                        <%= f.text_field :step, placeholder: "How to Cook", class: "step-blank" %>
+                        
+                        <%= f.text_area :step, placeholder: "How to Cook", class: "step-blank" %>
                     </div>
                 </div>
             </div>
