@@ -12,17 +12,20 @@
                 <div class="new-container clearfix">
                     <div class="new-left-container">
                         
-                        <%= f.text_field :title, class: "recipe-blank" %><br>
-                        <%= f.text_field :recipe_image, class: "recipe-blank" %><br>
+                        <%= f.text_field :title, placeholder: "Title", class: "recipe-blank" %><br>
+                        <%= f.text_field :recipe_image, placeholder: "Photos", class: "recipe-blank" %><br>
                         <%= f.fields_for :ingredients do |ingredient_fields| %>
-                            <%= ingredient_fields.text_field :name, class: "ingredients-blank" %>
+                            <%= ingredient_fields.text_field :name, placeholder: "Ingredients", class: "ingredients-blank" %>
+                        <% end %>
+                        <%= f.fields_for :recipe_ingredients do |recipe_ingredient_fields| %>
+                            <%= recipe_ingredient_fields.text_field :quantity, placeholder: "quantity", class: "ingredients-blank" %>
                         <% end %>
                     </div>
                     <div class="new-right-container">
                         <%= f.fields_for :categories do |category_fields| %>
-                            <%= category_fields.text_field :name, class: "recipe-blank" %>
+                            <%= category_fields.text_field :name, placeholder: "Category", class: "recipe-blank" %>
                         <% end %>
-                        <%= f.text_field :step, class: "step-blank" %>
+                        <%= f.text_field :step, placeholder: "How to Cook", class: "step-blank" %>
                     </div>
                 </div>
             </div>
