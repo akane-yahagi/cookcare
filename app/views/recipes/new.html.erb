@@ -14,10 +14,14 @@
                         
                         <%= f.text_field :title, class: "recipe-blank" %><br>
                         <%= f.text_field :recipe_image, class: "recipe-blank" %><br>
-                        <%= f.text_field :ingredients, class: "ingredient-blank" %>
+                        <%= f.fields_for :ingredients do |ingredient_fields| %>
+                            <%= ingredient_fields.text_field :name, class: "ingredients-blank" %>
+                        <% end %>
                     </div>
                     <div class="new-right-container">
-                        <%= f.text_field :categories, class: "recipe-blank" %><br>
+                        <%= f.fields_for :categories do |category_fields| %>
+                            <%= category_fields.text_field :name, class: "recipe-blank" %>
+                        <% end %>
                         <%= f.text_field :step, class: "step-blank" %>
                     </div>
                 </div>

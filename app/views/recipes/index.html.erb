@@ -1,8 +1,16 @@
-<div class="nav"></div>
-<div class="side-nav">
-    <%= form_for :session, url: logout_path, method: :delete do |f| %>
-        <div class="btn-section">
+<div class="nav">
+    <%= link_to "Cookcare", recipes_path, class: "title" %>
+    
+</div>
+<div class="recipe-wrapper clearfix">
+    <div class="side-nav">
+        <%= link_to "Post Recipe", new_recipe_path %>
+        <%= form_for :session, url: logout_path, method: :delete do |f| %>
             <%= f.submit 'Log in', class: 'mini-btn' %>
-        </div>
-    <% end %>
+        <% end %>
+    </div>
+    
+    <div class="index-wrapper">
+        
+    </div>
 </div>

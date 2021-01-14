@@ -4,6 +4,9 @@ class RecipesController < ApplicationController
   
   def new
     @recipe = Recipe.new
+    5.times { @recipe.ingredients.build }
+    #5.times { @recipe.quantity.build }
+    2.times { @recipe.categories.build }
   end
   
   def create
@@ -19,6 +22,6 @@ class RecipesController < ApplicationController
   
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_image, :step)
+    params.require(:recipe).permit(:title, :recipe_image, :step, recipe_ingredients_attirbutes: [:quantity], ingredients_attributes: [:name], categories_attiributes: [:name])
   end
 end
