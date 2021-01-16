@@ -72,3 +72,5 @@ gem 'bootstrap-sass'
 gem 'bcrypt'
 
 gem 'carrierwave'
+
+gem 'cocoon'

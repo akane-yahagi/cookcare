@@ -1,8 +1,8 @@
 html, body {
-  margin: 0;
+    margin: 0;
 }
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body {
@@ -57,93 +57,78 @@ body {
     width: 100vw;
     height: 92vh;
     
-    .side-nav {
-        width: 15%;
-        height: 100%;
+    .side-container {
+        width: 15vw;
+        height: 92vh;
         border-right: 1px solid #787878;
         float: left;
     }
     
-    .new-wrapper {
-        width: 85%;
-        height: 100%;
+    .main-container {
+        width: 85vw;
+        height: 92vh;
         float: right;
         
-        .new-container {
+        .new-section {
             border: 1px solid #787878;
             background-color: #fff;
             width: 98%;
             height: 98%;
-            margin: 0.5% 1%;
+            margin: 1% 1%;
             
-            .new-left-container {
-                float:left;
-                width: 45%;
+            .new-left-section {
+                float: left;
+                width: 50%;
+                height: 100%;
                 
-                .recipe-blank {
-                    height: 6vh;
+                .title-box {
+                    height: 10%;
                     width: 96%;
-                    margin-top: 1.5vh;
-                    margin-left: 2%;
+                    margin: 1.5% 2%;
                     background-color: rgba(0, 0, 0, 0.05);
                     border: none;
+                    display: block;
+                }
+                
+                .category-box {
+                    height: 10%;
+                    width: 96%;
+                    margin: 1.5% 2%;
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border: none;
+                    display: block;
                 }
                 
                 .ingredient-box {
-                    height: 72vh;
+                    height: 74%;
                     width: 96%;
-                    margin-top: 1.5vh;
-                    margin-left: 2%;
+                    margin: 1.5% 2%;
                     background-color: rgba(0, 0, 0, 0.05);
                     border: none;
-                    
-                    .ingredient-blank {
-                        /*height: 72vh;
-                        width: 96%;*/
-                        height: 5vh;
-                        width: 60%;
-                        margin-top: 1.5vh;
-                        /*margin-left: 2%;
-                        background-color: rgba(0, 0, 0, 0.05);*/
-                        border: none;
-                        /*float: left;*/
-                    }
-                    .quantity-blank {
-                        /*height: 72vh;
-                        width: 96%;*/
-                        height: 5vh;
-                        width: 35%;
-                        margin-top: 1.5vh;
-                        /*background-color: rgba(0, 0, 0, 0.05);*/
-                        border: none;
-                        /*float: right;*/
-                    }
                 }
-
             }
             
-            .new-right-container {
-                width: 55%;
+            .new-right-section {
+                width: 50%;
+                height: 100%;
                 float: right;
-
-                .recipe-blank {
-                    height: 6vh;
-                    width: 98%;
-                    margin-top: 1.5vh;
-                    margin-left: 1%;
+                
+                .photo-box {
+                    height: 10%;
+                    width: 96%;
+                    margin: 1.5% 2%;
                     background-color: rgba(0, 0, 0, 0.05);
                     border: none;
+                    display: block;
                 }
                 
-                .step-blank {
+                .step-box {
                     background-color: rgba(0, 0, 0, 0.05);
                     border: none;
-                    height: 79.5vh;
-                    width: 98%;
-                    margin-top: 1.5vh;
-                    margin-left: 1%;
+                    height: 85.5%;
+                    width: 96%;
+                    margin: 1.5% 2%;
                 }
-                
             }
         }
     }

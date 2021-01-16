@@ -7,28 +7,34 @@
             <%= f.submit "Delete", class: "new-btn" %>
         </div>
         <div class="recipe-wrapper clearfix">
-            <div class="side-nav"></div>
-            <div class="new-wrapper">
-                <div class="new-container clearfix">
-                    <div class="new-left-container">
-                        
-                        <%= f.text_field :title, placeholder: "Title", class: "recipe-blank" %><br>
-                        <%= f.file_field :recipe_image, placeholder: "Photos", class: "recipe-blank" %><br>
-                        <div class="ingredient-box clearfix">
-                            <%= f.fields_for :ingredients do |ingredient_fields| %>
-                                <%= ingredient_fields.text_field :name, placeholder: "Ingredients", class: "ingredient-blank" %><br>
+            <div class="side-container"></div>
+            <div class="main-container">
+                <div class="new-section clearfix">
+                    <div class="new-left-section">
+                        <%= f.text_field :title, placeholder: "Title", class: "title-box" %>
+                        <div class="category-box">
+                            <% @categories.each do |category| %>
+                                <%= f.check_box :categories, {multiple: true}, category, nil %>
+                                <!--:categoriesなのか。categoryテーブルnameカラムだから:nameだと思うがエラーが出る-->
+                                <%= category.name %>
                             <% end %>
-                            <%= f.fields_for :recipe_ingredients do |recipe_ingredient_fields| %>
-                                <%= recipe_ingredient_fields.text_field :quantity, placeholder: "quantity", class: "quantity-blank" %><br>
+                        </div>
+                        <div class="ingredient-box">
+                            <%= f.fields_for :ingredients do |ff| %>
+                                <%= ff.text_field :name, placeholder: "Ingredients" %>
+                            <% end %>
+                            <%= f.fields_for :recipe_ingredients do |ff| %>
+                                <%= ff.text_field :quantity, placeholder: "quantity" %>
                             <% end %>
                         </div>
                     </div>
-                    <div class="new-right-container">
-                        <%= f.fields_for :categories do |category_fields| %>
-                            <%= category_fields.text_field :name, placeholder: "Category", class: "recipe-blank" %>
-                        <% end %>
-                        
-                        <%= f.text_area :step, placeholder: "How to Cook", class: "step-blank" %>
+                    <div class="new-right-section">
+                        <%= f.file_field :recipe_image, placeholder: "Photos", class: "photo-box" %>
+                        <div class="step-box">
+                            <%= 1 %>
+                            <%= f.text_area :step, placeholder: "How to Cook" %>
+                            <!--<%= link_to_add_association "Add Next Step", f, :step %>-->
+                        </div>
                     </div>
                 </div>
             </div>
