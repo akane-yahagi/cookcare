@@ -24,16 +24,20 @@
                                 <%= ff.text_field :name, placeholder: "Ingredients" %>
                             <% end %>
                             <%= f.fields_for :recipe_ingredients do |ff| %>
-                                <%= ff.text_field :quantity, placeholder: "quantity" %>
+                             <%= ff.text_field :quantity, placeholder: "quantity" %>
                             <% end %>
                         </div>
                     </div>
                     <div class="new-right-section">
                         <%= f.file_field :recipe_image, placeholder: "Photos", class: "photo-box" %>
-                        <div class="step-box">
-                            <%= 1 %>
-                            <%= f.text_area :step, placeholder: "How to Cook" %>
-                            <!--<%= link_to_add_association "Add Next Step", f, :step %>-->
+                        <!--<%= f.text_area :step, placeholder: "How to Cook" %>-->
+                        <%= f.fields_for :steps do |step| %>
+                            <div class="field">
+                                <%= render 'step_fields', f: step %>
+                            </div>
+                        <% end %>
+                        <div class="links">
+                            <%= link_to_add_association 'add step',f, :steps %>
                         </div>
                     </div>
                 </div>

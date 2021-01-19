@@ -4,12 +4,10 @@ class RecipesController < ApplicationController
   
   def new
     @recipe = Recipe.new
+    @step = @recipe.steps.build
     @recipe.ingredients.all
     @recipe.recipe_ingredients.build
     @categories = Category.all
-    # 10.times { @recipe.ingredients.build }
-    # 10.times { @recipe.recipe_ingredients.build }
-    # 1.times { @recipe.categories.build }
     
     # カテゴリーの取得とingredientsの取得　.all
   end
@@ -27,6 +25,6 @@ class RecipesController < ApplicationController
   
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_image, :step, recipe_ingredients_attirbutes: [:quantity], ingredients_attributes: [:name], categories_attiributes: [:name])
+    params.require(:recipe).permit(:title, :recipe_image, steps_attirbutes: [:id, :step, :recipe_id, :_destroy], recipe_ingredients_attirbutes: [:quantity], ingredients_attributes: [:name], categories_attiributes: [:name])
   end
 end
