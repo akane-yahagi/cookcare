@@ -11,8 +11,12 @@
             <div class="main-container">
                 <div class="new-section clearfix">
                     <div class="new-left-section">
-                        <%= f.text_field :title, placeholder: "Title", class: "title-box" %>
+                        <div class="title-box">
+                            <p>Title</p>
+                            <%= f.text_field :title, class: "title-blank" %>
+                        </div>
                         <div class="category-box">
+                            <p>Category</p>
                             <% @categories.each do |category| %>
                                 <%= f.check_box :categories, {multiple: true}, category, nil %>
                                 <!--:categoriesなのか。categoryテーブルnameカラムだから:nameだと思うがエラーが出る-->
@@ -30,14 +34,17 @@
                     </div>
                     <div class="new-right-section">
                         <%= f.file_field :recipe_image, placeholder: "Photos", class: "photo-box" %>
-                        <!--<%= f.text_area :step, placeholder: "How to Cook" %>-->
-                        <%= f.fields_for :steps do |step| %>
-                            <div class="field">
-                                <%= render 'step_fields', f: step %>
+                        
+                        <div class="step-box">
+                            <p>Steps</p>
+                            <%= f.fields_for :steps do |step| %>
+                                <div class="field">
+                                    <%= render 'step_fields', f: step %>
+                                </div>
+                            <% end %>
+                            <div class="links">
+                                <%= link_to_add_association "Add Step",f, :steps, class: "step-btn" %>
                             </div>
-                        <% end %>
-                        <div class="links">
-                            <%= link_to_add_association 'add step',f, :steps %>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
     @recipe.ingredients.all
     @recipe.recipe_ingredients.build
     @categories = Category.all
-    
     # カテゴリーの取得とingredientsの取得　.all
   end
   
