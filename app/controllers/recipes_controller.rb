@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @step = @recipe.steps.build
-    @recipe.ingredients.all
+    @ingredients = Ingredient.all
     @recipe.recipe_ingredients.build
     @categories = Category.all
     # カテゴリーの取得とingredientsの取得　.all
@@ -20,6 +20,12 @@ class RecipesController < ApplicationController
       flash[:danger] = "投稿失敗"
       render :new
     end
+  end
+  
+  def destroy
+    @recipe = current.recipe
+    @recipe.destroy
+    redirect_to recipe_path, danger: "作成中のレシピを削除しました"
   end
   
   private

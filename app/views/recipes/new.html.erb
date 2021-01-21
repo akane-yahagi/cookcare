@@ -17,15 +17,25 @@
                         </div>
                         <div class="category-box">
                             <p>Category</p>
-                            <% @categories.each do |category| %>
-                                <%= f.check_box :categories, {multiple: true}, category, nil %>
+                            
+                            <%= f.fields_for :categories do |ff| %>
+                                <% @categories.each.with_index(1) do |category, index| %>
+                                    <%= ff.check_box :categories, {multiple: true}, category, nil %>
+                                    <%= category.name %>
+                                    
+                                    <% if index == 5 %>
+                                        <br>
+                                    <% end %>
+                                <% end %>
                                 <!--:categoriesなのか。categoryテーブルnameカラムだから:nameだと思うがエラーが出る-->
-                                <%= category.name %>
+                                <!--recipeテーブル内にnameカラムがないからエラー発生。form_forは1つのモデルに対してだから-->
+                                <!--form_tagだとエラー発生しないと思われる-->
                             <% end %>
                         </div>
                         <div class="ingredient-box">
+                            <p>Ingredients</p>
                             <%= f.fields_for :ingredients do |ff| %>
-                                <%= ff.text_field :name, placeholder: "Ingredients" %>
+                                <%= ff.select :name, Ingredient.all.map{ |v| [v.name] } %>
                             <% end %>
                             <%= f.fields_for :recipe_ingredients do |ff| %>
                              <%= ff.text_field :quantity, placeholder: "quantity" %>
