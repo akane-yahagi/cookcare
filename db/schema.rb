@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_054902) do
+ActiveRecord::Schema.define(version: 2021_01_21_071246) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2021_01_19_054902) do
     t.string "user_id"
     t.string "title"
     t.string "recipe_image"
-    t.text "step"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
