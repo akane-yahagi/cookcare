@@ -11,6 +11,8 @@
     </div>
     
     <div class="index-wrapper">
-        
+        <% @recipes.each do |recipe| %>
+            <%= recipe.title %>
+        <% end %>
     </div>
 </div>

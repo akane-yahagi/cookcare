@@ -1,10 +1,11 @@
 class RecipesController < ApplicationController
   def index
+    @recipes = Recipe.all.includes(:ingredients, :categories)
   end
   
   def new
     @recipe = Recipe.new
-    @step = @recipe.steps.build
+    @recipe.steps.build
     @ingredients = Ingredient.all
     @recipe.recipe_ingredients.build
     @categories = Category.all
@@ -12,7 +13,7 @@ class RecipesController < ApplicationController
   end
   
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
     
     if @recipe.save
       redirect_to recipes_path, seccess: "投稿完了"
@@ -30,6 +31,6 @@ class RecipesController < ApplicationController
   
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :recipe_image, steps_attirbutes: [:id, :step, :recipe_id, :_destroy], recipe_ingredients_attirbutes: [:quantity], ingredients_attributes: [:name], categories_attiributes: [:name])
+    params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_ingredients_attiributes: [:quantity], ingredients_attributes: [:name], categories_attiributes: [:name])
   end
 end

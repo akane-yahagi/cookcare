@@ -26,6 +26,9 @@ body {
     height: 8vh;
     background-color: rgba(230, 180, 40, 0.9);
     // border-bottom: 1px solid #787878;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     
     .title {
@@ -56,6 +59,9 @@ body {
 .recipe-wrapper {
     width: 100vw;
     height: 92vh;
+    position: absolute;
+    top: 8vh;
+    left: 0;
 
     .side-container {
         width: 15vw;
@@ -73,7 +79,7 @@ body {
             border: 1px solid #787878;
             background-color: #fff;
             width: 98%;
-            height: 98%;
+            height: 97%;
             margin: 1%;
             
             .new-left-section {
