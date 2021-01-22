@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
     ALLOWED_PARAMS = [:title, :user_id, :recipe_image]
-    
+   
     validates :title, presence: true, length: {maximum: 20}
 
     belongs_to :user
