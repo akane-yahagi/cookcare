@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all.includes(:ingredients, :categories)
+    @recipes = Recipe.all.includes(:ingredients, :categories, :steps)
   end
   
   def new
@@ -21,6 +21,10 @@ class RecipesController < ApplicationController
       flash[:danger] = "投稿失敗"
       render :new
     end
+  end
+  
+  def show
+    @recipe = Recipe.find_by(id: params[:id])
   end
   
   def destroy
