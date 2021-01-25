@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_071246) do
+ActiveRecord::Schema.define(version: 2021_01_25_021121) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_01_21_071246) do
   end
 
   create_table "ingredients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "recipe_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_01_21_071246) do
   end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "user_id"
+    t.integer "user_id"
     t.string "title"
     t.string "recipe_image"
     t.datetime "created_at", null: false
@@ -51,10 +50,10 @@ ActiveRecord::Schema.define(version: 2021_01_21_071246) do
   end
 
   create_table "steps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "recipe_id"
     t.text "step"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "recipe_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
