@@ -5,28 +5,38 @@
     <div class="recipe-wrapper clearfix">
         <div class="side-container"></div>
         <div class="main-container">
-            <div class="new-section clearfix">
-                <div class="new-left-section">
+            <div class="recipe-section clearfix">
+                <div class="recipe-left-section">
                     <div class="title-box">
                         <p>Title</p>
                         <%= @recipe.title %>
                     </div>
-                    <div class="category-box">
-                        <p>Category</p>
-                        <%= @category.pluck(:name).join(", ") %>
+                    <div class="info-box clearfix">
+                        <div class="info-left-box">
+                            <div class="show-username-box">
+                                <p>Username</p>
+                                <%= @recipe.user.name%>
+                            </div>
+                            <div class="image-box">
+                                <p>Photo</p>
+                                <%= @recipe.recipe_image %>
+                            </div>
+                        </div>
+                        <div class="memo-box">
+                            <p>Memo</p>
+                        </div>
                     </div>
-                    <div class="ingredient-box">
+                    <div class="show-ingredient-box">
                         <p>Ingredients</p>
                         <%= @ingredient.name %>
                     </div>
                 </div>
                 
-                <div class="new-right-section">
-                    <div class="photo-box">
-                        <p>Image</p>
-                        <%= @recipe.recipe_image %>
+                <div class="recipe-right-section">
+                    <div class="category-box">
+                        <p>Category</p>
+                        <%= @category.pluck(:name).join(", ") %>
                     </div>
-                    
                     <div class="step-box">
                         <p>Steps</p>
                         <%= @step.pluck(:step).join("/n") %>
