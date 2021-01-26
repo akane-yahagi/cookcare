@@ -1,3 +1,4 @@
+// for all
 html, body {
     margin: 0;
 }
@@ -26,10 +27,6 @@ body {
     height: 8vh;
     background-color: rgba(230, 180, 40, 0.9);
     // border-bottom: 1px solid #787878;
-    position: absolute;
-    top: 0;
-    left: 0;
-
     
     .title {
         display: block;
@@ -42,27 +39,13 @@ body {
         
     }
     
-    .new-btn {
-        float: right;
-        font-size: 1.2rem;
-        color: white;
-        background-color: black;
-        width: 5vw;
-        height: 5vh;
-        border-radius: 30px;
-        padding: 1vh 1vw;
-        margin-top: 1.5vh;
-        margin-right: 1vw;
-    }
 }
+
 
 .recipe-wrapper {
     width: 100vw;
     height: 92vh;
-    position: absolute;
-    top: 8vh;
-    left: 0;
-
+    
     .side-container {
         width: 15vw;
         height: 92vh;
@@ -75,97 +58,165 @@ body {
         height: 92vh;
         float: right;
         
-        .new-section {
-            border: 1px solid #787878;
-            background-color: #fff;
-            width: 98%;
-            height: 97%;
-            margin: 1%;
-            
-            .new-left-section {
-                float: left;
-                width: 50%;
-                height: 100%;
-                
-                .title-box {
-                    height: 10%;
-                    width: 96%;
-                    margin: 1.5% 2%;
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border: none;
-                    display: block;
-                    
-                    .title-blank {
-                        height: 4vh;
-                        width: 96%;
-                        margin: 0 2%;
-                        border: none;
-                        border-bottom: 1px solid #787878;
-                        margin-bottom: 1%;
-                        background-color: transparent;
-                    }
-                }
-                
-                .category-box {
-                    height: 10%;
-                    width: 96%;
-                    margin: 1.5% 2%;
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border: none;
-                    display: block;
-                }
-                
-                .ingredient-box {
-                    height: 74%;
-                    width: 96%;
-                    margin: 1.5% 2%;
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border: none;
-                }
-            }
-            
-            .new-right-section {
-                width: 50%;
-                height: 100%;
-                float: right;
-                
-                .photo-box {
-                    height: 10%;
-                    width: 96%;
-                    margin: 1.5% 2%;
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border: none;
-                    display: block;
-                }
-                
-                .step-box {
-                    background-color: rgba(0, 0, 0, 0.05);
-                    // background-color: rgba(230, 180, 40, 0.1);
-                    border: none;
-                    height: 85.5%;
-                    width: 96%;
-                    margin: 1.5% 2%;
-                    
-                    .step-blank{
-                        height: 4vh;
-                        width: 90%;
-                        margin: 0 2%;
-                        background-color: transparent;
-                        border: none;
-                        border-bottom: 1px solid #787878;
-                        margin-bottom: 1%;
-                    }
-                    
-                    .step-btn {
-                        font-size: 1.2rem;
-                        color: black;
-                        background-color: rgba(230, 180, 40, 0.9);
-                        border-radius: 30px;
-                        padding: 1% 1%;
-                        margin-left: 2%;
-                    }
-                }
-            }
-        }
     }
 }
+
+.recipe-section {
+    border: 1px solid #787878;
+    background-color: #fff;
+    width: 98%;
+    height: 97%;
+    margin: 1%;
+    
+    .recipe-left-section {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+    
+    .recipe-right-section {
+        width: 50%;
+        height: 100%;
+        float: right;
+    }
+}
+
+
+
+// for recipe#new
+.new-btn {
+    float: right;
+    font-size: 1.2rem;
+    color: white;
+    background-color: black;
+    width: 5vw;
+    height: 5vh;
+    border-radius: 30px;
+    padding: 1vh 1vw;
+    margin-top: 1.5vh;
+    margin-right: 1vw;
+}
+
+.title-box {
+    height: 10%;
+    width: 96%;
+    margin: 1.5% 2%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+    display: block;
+    
+    .title-blank {
+        height: 4vh;
+        width: 96%;
+        margin: 0 2%;
+        border: none;
+        border-bottom: 1px solid #787878;
+        margin-bottom: 1%;
+        background-color: transparent;
+    }
+}
+
+.category-box {
+    height: 10%;
+    width: 96%;
+    margin: 1.5% 2%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+    display: block;
+}
+
+.ingredient-box {
+    height: 74%;
+    width: 96%;
+    margin: 1.5% 2%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+}
+    
+.photo-box {
+    height: 10%;
+    width: 96%;
+    margin: 1.5% 2%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+    display: block;
+}
+
+.step-box {
+    background-color: rgba(0, 0, 0, 0.05);
+    // background-color: rgba(230, 180, 40, 0.1);
+    border: none;
+    height: 85.5%;
+    width: 96%;
+    margin: 1.5% 2%;
+    
+    .step-blank{
+        height: 4vh;
+        width: 90%;
+        margin: 0 2%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #787878;
+        margin-bottom: 1%;
+    }
+    
+    .step-btn {
+        font-size: 1.2rem;
+        color: black;
+        background-color: rgba(230, 180, 40, 0.9);
+        border-radius: 30px;
+        padding: 1% 1%;
+        margin-left: 2%;
+    }
+}
+
+//for recipe#show
+.info-box {
+    height: 24%;
+    width: 96%;
+    margin: 1.5% 2%;
+    // background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+    display: block;
+    
+    .info-left-box {
+        height: 100%;
+        width: 49%;
+        float: left;
+        
+        .show-username-box {
+            height: 30%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border: none;
+            display: block;
+            margin-bottom: 3%;
+        }
+        
+        .image-box {
+            height: 64%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border: none;
+            display: block;
+        }
+    }
+    
+    .memo-box {
+        height: 100%;
+        width: 49%;
+        background-color: rgba(0, 0, 0, 0.05);
+        border: none;
+        display: block;
+        float: right;
+    }
+}
+
+.show-ingredient-box {
+    height: 60%;
+    width: 96%;
+    margin: 1.5% 2%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: none;
+}
+
