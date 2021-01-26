@@ -15,6 +15,9 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "jquery-ui/autocomplete";
+@import "jquery-ui/theme";
+@import "jquery-ui/menu";
 
 .alert {
   margin-bottom: 0px;

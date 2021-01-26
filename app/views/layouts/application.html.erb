@@ -23,6 +23,34 @@
       $(function() {
         $(".alert").fadeOut(2000);
       });
+      
+      $(function() {
+        const dataList = function(request, response) {
+          $.ajax({
+            url: '/ingredients/autocomplete_name/' + request.term,
+            dataType: 'json',
+            type: 'GET',
+            cache: true,
+            success: function(data) {
+              response(data);
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+              response(['']);
+            }
+          });
+        }
+        
+        $('#ingredient_name').autocomplete({
+          source: dataList,
+          autoFocus: true, // 自動的に先頭の項目にフォーカスするか
+          delay: 300, // 入力してからサジェストが動くまでの時間(ms)
+          minLength: 2 // 2文字入力しないとサジェストが動かない
+        })
+      });
+      
+      $(function() {
+        const dataList = ["こうほ１","こうほ２"];
+      });
     </script>
   </body>
 </html>

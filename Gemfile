@@ -74,3 +74,5 @@ gem 'bcrypt'
 gem 'carrierwave'
 
 gem 'cocoon'
+
+gem 'jquery-ui-rails'

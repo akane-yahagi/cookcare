@@ -3,16 +3,20 @@
     
 </div>
 <div class="recipe-wrapper clearfix">
-    <div class="side-nav">
+    <div class="side-container">
+        <%= @current_user.name %>
+        <%= link_to "Edit", edit_user_path(@current_user) %><br>
         <%= link_to "Post Recipe", new_recipe_path %>
         <%= form_for :session, url: logout_path, method: :delete do |f| %>
-            <%= f.submit 'Log in', class: 'mini-btn' %>
+            <%= f.submit 'Log Out', class: 'btn' %>
         <% end %>
     </div>
-    
-    <div class="index-wrapper">
+    <div class="main-container">
         <% @recipes.each do |recipe| %>
-            <%= recipe.title %>
+            <div class="recipe-tag">
+            <%= link_to recipe.title, recipe_path(recipe) %>
+                
+            </div>
         <% end %>
     </div>
 </div>

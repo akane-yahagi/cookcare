@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   
   resources :users
   resources :recipes
+  
+  resources :ingredients do
+    get '/autocomplete_name/:name', on: :collection, action: :autocomplete_name
+  end
 end
