@@ -28,7 +28,7 @@
                     </div>
                     <div class="show-ingredient-box">
                         <p>Ingredients</p>
-                        <%= @ingredient.name %>
+                        <%= @quantity.pluck(:quantity).join(" ") %>
                     </div>
                 </div>
                 
@@ -39,7 +39,7 @@
                     </div>
                     <div class="step-box">
                         <p>Steps</p>
-                        <%= @step.pluck(:step).join("/n") %>
+                        <%= @step.pluck(:step).join("\n")%>
                     </div>
                 </div>
             </div>

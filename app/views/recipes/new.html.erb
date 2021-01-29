@@ -1,4 +1,4 @@
-</body>
+<body>
     <%= form_for @recipe do |f| %>
         <div class="nav">
             <%= link_to "Cookcare", recipes_path, class: "title" %>
@@ -17,19 +17,8 @@
                         </div>
                         <div class="category-box">
                             <p>Category</p>
-                            
-                            <%= f.fields_for :categories do |ff| %>
-                                <% @categories.each.with_index(1) do |category, index| %>
-                                    <%= ff.check_box :categories, {multiple: true}, category, nil %>
-                                    <%= category.name %>
-                                    
-                                    <% if index == 5 %>
-                                        <br>
-                                    <% end %>
-                                <% end %>
-                                <!--:categoriesなのか。categoryテーブルnameカラムだから:nameだと思うがエラーが出る-->
-                                <!--recipeテーブル内にnameカラムがないからエラー発生。form_forは1つのモデルに対してだから-->
-                                <!--form_tagだとエラー発生しないと思われる-->
+                            <%=f.collection_check_boxes :category_ids, @categories, :id, :name, include_hidden: false do |b| %>
+                                <%= b.label { b.check_box + b.text } %>
                             <% end %>
                         </div>
                         <div class="ingredient-box">
@@ -61,5 +50,4 @@
             </div>
         </div>
     <% end %>
-<body>
-    
+</body>

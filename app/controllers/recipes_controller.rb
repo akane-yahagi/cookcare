@@ -1,14 +1,17 @@
 class RecipesController < ApplicationController
+  
+  autocomplete :ingredient, :name, full: true
+  
   def index
-    @recipes = Recipe.all.includes(:ingredients, :categories, :steps)
+    @recipes = Recipe.all
   end
   
   def new
     @recipe = Recipe.new
-    @recipe.steps.build
-    @ingredients = Ingredient.all
-    @recipe.recipe_ingredients.build
     @categories = Category.all
+    @recipe.steps.build
+    @recipe.ingredients.build
+    @quantity = @recipe.recipe_ingredients.build
     # カテゴリーの取得とingredientsの取得　.all
   end
   
@@ -24,10 +27,11 @@ class RecipesController < ApplicationController
   end
   
   def show
-    @recipe = Recipe.find_by(params[:recipe_id])
+    @recipe = Recipe.find_by(id: params[:id])
     @step = @recipe.steps
     @category = @recipe.categories
-    @ingredient = @recipe.recipe_ingredients
+    @ingredient = @recipe.ingredients
+    @quantity = @recipe.recipe_ingredients
   end
   
   def destroy
@@ -38,6 +42,6 @@ class RecipesController < ApplicationController
   
   private
   def recipe_params
-    params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_ingredients_attiributes: [:quantity], ingredients_attributes: [:name], categories_attiributes: [:name])
+    params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_ingredients_attiributes: [:quantity], ingredients_attributes: [:name], recipe_categories_attributes: [:category_id])
   end
 end
