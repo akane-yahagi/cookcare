@@ -220,11 +220,41 @@ body {
     border: none;
 }
 
+.show-category-on {
+    color: red;
+    float: left;
+}
+
+.show-category-off {
+    color: gray;
+    float: left;
+}
+
 // for recipe#index
 .index-single {
-    width: 19%;
-    height: 35%;
-    margin: 1% 0.5%;
+    width: 18%;
+    height: 29%;
+    margin: 1% 1%;
     border:1px solid #787878;
     float: left;
+    
+    .index-single-image {
+        width: 100%;
+        height: 75%;
+    }
+    
+    .index-single-title {
+        display: block;
+        width: 100%;
+        color: black;
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .index-single-username {
+        display: block;
+        width: 100%;
+        color: black;
+        text-align: right;
+    }
 }

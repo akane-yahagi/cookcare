@@ -27,10 +27,10 @@ class RecipesController < ApplicationController
   
   def show
     @recipe = Recipe.find_by(id: params[:id])
-    @step = @recipe.steps
-    @category = @recipe.categories
-    @quantity = @recipe.recipe_ingredients
-    @ingredient = @recipe.ingredients
+    @steps = @recipe.steps
+    @categories = Category.all
+    @recipe_categories = @recipe.recipe_categories
+    @recipe_ingredients = @recipe.recipe_ingredients
   end
   
   def destroy

@@ -5,7 +5,7 @@ class Ingredient < ApplicationRecord
     # }
     
     NESTED_ALLOWED_PARAMS = [:id, :_destroy, :name ]
-    has_many :recipe_ingredients, dependent: :destroy, foreign_key: 'ingredient_id'
+    has_many :recipe_ingredients, dependent: :destroy
     has_many :recipes, through: :recipe_ingredients
     
     ##uniqueエラーでた。最初のみ使える?

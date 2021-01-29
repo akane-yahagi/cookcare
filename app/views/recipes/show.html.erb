@@ -28,18 +28,35 @@
                     </div>
                     <div class="show-ingredient-box">
                         <p>Ingredients</p>
-                        <%= @quantity.pluck(:quantity).join(" ") %>
+                        <% @recipe_ingredients.each do |recipe_ingredient| %>
+                            <%= recipe_ingredient.ingredient.name %>
+                            <%= recipe_ingredient.quantity %><br>
+                        <% end %>
                     </div>
                 </div>
                 
                 <div class="recipe-right-section">
                     <div class="category-box">
                         <p>Category</p>
-                        <%= @category.pluck(:name).join(", ") %>
+                        <% @categories.each do |category| %>
+                            <% @recipe_categories.each do |recipe_category| %>
+                                <% if category.name == recipe_category.category.name %>
+                                    <div class="show-category-on">
+                                        <%= recipe_category.category.name %>
+                                    </div>
+                                <% else %>
+                                    <div class="show-category-off">
+                                        <%= category.name %>
+                                    </div>
+                                <% end %>
+                            <% end %>
+                        <% end %>
                     </div>
                     <div class="step-box">
                         <p>Steps</p>
-                        <%= @step.pluck(:step).join("\n")%>
+                        <% @steps.each do |step| %>
+                            <%= step.step %><br>
+                        <% end %>
                     </div>
                 </div>
             </div>
