@@ -14,9 +14,15 @@
     <div class="main-container">
         <% @recipes.each do |recipe| %>
             <div class="index-single">
-                <%= image_tag recipe.recipe_image.url if recipe.recipe_image? %>
-                <%= link_to recipe.title, recipe_path(recipe) %>
-                
+                <% if recipe.recipe_image? %>
+                    <%= image_tag recipe.recipe_image.url, class: "index-single-image" %>
+                <% else %>
+                    <%= image_tag "no_image.jpg", class: "index-single-image" %>
+                <% end %>
+                <%= link_to recipe.title, recipe_path(recipe), class: "index-single-title" %>
+                <div class="index-single-username">
+                    <%= "By " + recipe.user.name %>
+                </div>
             </div>
         <% end %>
     </div>
