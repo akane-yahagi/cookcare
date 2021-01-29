@@ -10,8 +10,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @categories = Category.all
     @recipe.steps.build
-    @recipe.ingredients.build
-    @quantity = @recipe.recipe_ingredients.build
+    @recipe.recipe_ingredients.build
     # カテゴリーの取得とingredientsの取得　.all
   end
   
@@ -30,18 +29,18 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     @step = @recipe.steps
     @category = @recipe.categories
-    @ingredient = @recipe.ingredients
     @quantity = @recipe.recipe_ingredients
+    @ingredient = @recipe.ingredients
   end
   
   def destroy
-    @recipe = current.recipe
+    @recipe = current_recipe
     @recipe.destroy
     redirect_to recipe_path, danger: "作成中のレシピを削除しました"
   end
   
   private
   def recipe_params
-    params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_ingredients_attiributes: [:quantity], ingredients_attributes: [:name], recipe_categories_attributes: [:category_id])
+    params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_ingredients_attributes: RecipeIngredient::NESTED_ALLOWED_PARAMS, ingredients_attributes: Ingredient::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
   end
 end

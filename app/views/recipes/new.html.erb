@@ -3,8 +3,8 @@
         <div class="nav">
             <%= link_to "Cookcare", recipes_path, class: "title" %>
             <%= f.submit "Post", class: "new-btn" %>
-            <%= f.submit "Save", class: "new-btn" %>
-            <%= f.submit "Delete", class: "new-btn" %>
+            <!--<%= f.submit "Save", class: "new-btn" %>-->
+            <!--<%= f.submit "Delete", class: "new-btn" %>-->
         </div>
         <div class="recipe-wrapper clearfix">
             <div class="side-container"></div>
@@ -17,18 +17,20 @@
                         </div>
                         <div class="category-box">
                             <p>Category</p>
-                            <%=f.collection_check_boxes :category_ids, @categories, :id, :name, include_hidden: false do |b| %>
+                            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
                                 <%= b.label { b.check_box + b.text } %>
                             <% end %>
                         </div>
                         <div class="ingredient-box">
                             <p>Ingredients</p>
-                            <%= f.fields_for :ingredients do |ff| %>
-                                <%= ff.text_field :name, id: :ingredient_name %>
+                            <%= f.fields_for :recipe_ingredients do |recipe_ingredient| %>
+                                <div class="field">
+                                    <%= render "recipe_ingredient_fields", f: recipe_ingredient %>
+                                </div>
                             <% end %>
-                            <%= f.fields_for :recipe_ingredients do |ff| %>
-                             <%= ff.text_field :quantity, placeholder: "quantity" %>
-                            <% end %>
+                            <div class="links">
+                                <%= link_to_add_association "Add Ingredient",f, :recipe_ingredients, class: "step-btn" %>
+                            </div>
                         </div>
                     </div>
                     <div class="recipe-right-section">
