@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
+    
+    mount_uploader :recipe_image, RecipeImageUploader
+    
     ALLOWED_PARAMS = [:title, :user_id, :recipe_image, {category_ids: []}, {ingredient_ids: []}]
    
     validates :title, presence: true, length: {maximum: 20}

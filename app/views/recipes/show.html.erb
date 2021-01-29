@@ -19,7 +19,7 @@
                             </div>
                             <div class="image-box">
                                 <p>Photo</p>
-                                <%= @recipe.recipe_image %>
+                                <%= image_tag @recipe.recipe_image.url if @recipe.recipe_image? %>
                             </div>
                         </div>
                         <div class="memo-box">
