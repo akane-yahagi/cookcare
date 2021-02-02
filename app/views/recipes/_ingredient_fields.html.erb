@@ -1,5 +1,6 @@
 <div class="nested-fields">
-    <!--<%= f.text_field :name, placeholder: "ingredent", class: "step-blank" %>-->
-    <%= autocomplete_field_tag 'ingredient[name]', nil,  autocomplete_ingredient_name_ingredients_path, placeholder: "ingredient" %>
+    <%= f.text_field :name, placeholder: "ingredent", class: "step-blank" %>
+    <!--<%= f.collection_select :id, Ingredient.all, :id, :name %>-->
+    <!--<%= autocomplete_field_tag 'ingredient[name]', nil,  autocomplete_ingredient_name_ingredients_path, placeholder: "ingredient" %>-->
     <%= link_to_remove_association image_tag("minus_icon.png"), f %>
 </div>

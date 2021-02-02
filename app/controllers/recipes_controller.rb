@@ -16,11 +16,30 @@ class RecipesController < ApplicationController
   end
   
   def create
+    params[:recipe][:recipe_ingredients_attributes].each do |attribute|
+      attribute.each_with_index do |ingredient, index|
+        next if index == 0
+      
+        # binding.pry
+        @ingredient = Ingredient.find_by(name: ingredient[:ingredient][:name])
+        # binding.pry
+        if @ingredient.nil?
+          @ingredient = Ingredient.new(name: ingredient[:ingredient][:name])
+          
+          @ingredient.save
+        end
+      end
+    end
+    
     @recipe = current_user.recipes.new(recipe_params)
+    # binding.pry
+    # #複数だからidがうまくひきわたせない、update_attributes
+    # @recipe.ingredient_ids = @ingredient.ids
     
     if @recipe.save
       redirect_to recipes_path, seccess: "投稿完了"
     else
+      binding.pry
       flash[:danger] = "投稿失敗"
       render :new
     end

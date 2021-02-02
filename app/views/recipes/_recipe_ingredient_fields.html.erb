@@ -1,4 +1,6 @@
 <div class="nested-fields">
+    <!--<%= f.collection_select :ingredient_id, Ingredient.all, :id, :name %>-->
+    <!--<%= f.text_field :ingredient, placeholder: "ingredent", class: "step-blank" %>-->
     <%= f.text_field :quantity, placeholder: "quantity", class: "step-blank" %>
     <%= link_to_add_association "Add  Ingredient",f, :ingredient, class: "step-btn" %>
     <%= link_to_remove_association image_tag("minus_icon.png"), f %>

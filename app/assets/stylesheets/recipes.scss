@@ -251,6 +251,7 @@ body {
     margin: 1% 1%;
     border:1px solid #787878;
     float: left;
+    // background-color: rgba(0, 0, 0, 0.05);
     
     .index-single-image {
         width: 100%;
@@ -265,7 +266,7 @@ body {
         color: black;
         font-size: 2.2rem;
         text-align: center;
-        background-color: pink;
+        background-color: rgba(0, 0, 0, 0.05);
     }
     
     .index-single-username {
@@ -274,6 +275,6 @@ body {
         height: 10%;
         color: black;
         text-align: right;
-        background-color: green;
+        background-color: rgba(0, 0, 0, 0.05);
     }
 }
