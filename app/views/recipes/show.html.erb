@@ -6,27 +6,29 @@
         <div class="side-container"></div>
         <div class="main-container">
             <div class="recipe-section clearfix">
-                <div class="recipe-left-section">
-                    <div class="title-box">
+                <div class="recipe-left-section clearfix">
+                    <div class="show-title-box">
                         <p>Title</p>
                         <%= @recipe.title %>
                     </div>
+                    <div class="show-username-box">
+                        <p>Username</p>
+                        <%= @recipe.user.name%>
+                    </div>
                     <div class="info-box clearfix">
-                        <div class="info-left-box">
-                            <div class="show-username-box">
-                                <p>Username</p>
-                                <%= @recipe.user.name%>
-                            </div>
-                            <div class="image-box">
-                                <p>Photo</p>
-                                <%= image_tag @recipe.recipe_image.url if @recipe.recipe_image? %>
-                            </div>
+                        <div class="image-box">
+                            <p class="show-image-text">Photo</p>
+                            <% if @recipe.recipe_image? %>
+                                <%= image_tag @recipe.recipe_image.url, class: "show-image" %>
+                            <% else %>
+                                <%= image_tag "no_image.jpg", class: "show-image" %>
+                            <% end %>
                         </div>
                         <div class="memo-box">
                             <p>Memo</p>
                         </div>
                     </div>
-                    <div class="show-ingredient-box">
+                    <div class="show-ingredients-box">
                         <p>Ingredients</p>
                         <% @recipe_ingredients.each do |recipe_ingredient| %>
                             <%= recipe_ingredient.ingredient.name %>
@@ -38,18 +40,22 @@
                 <div class="recipe-right-section">
                     <div class="category-box">
                         <p>Category</p>
-                        <% @categories.each do |category| %>
+                        <% a = 0 %>
+                        <% @categories.each do |category1| %>
                             <% @recipe_categories.each do |recipe_category| %>
-                                <% if category.name == recipe_category.category.name %>
+                                <% if category1.name == recipe_category.category.name %>
                                     <div class="show-category-on">
-                                        <%= recipe_category.category.name %>
-                                    </div>
-                                <% else %>
-                                    <div class="show-category-off">
-                                        <%= category.name %>
+                                        <%= category1.name %>
+                                        <% a += 1 %>
                                     </div>
                                 <% end %>
                             <% end %>
+                            <% if a == 0 %>
+                                <div class="show-category-off">
+                                    <%= category1.name %>
+                                </div>
+                            <% end %>
+                            <% a = 0 %>
                         <% end %>
                     </div>
                     <div class="step-box">
