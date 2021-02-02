@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users
-  resources :recipes do
-    get :autocomplete_ingredient_name, on: :collection
-  end
+  resources :recipes
+  # resources :recipes do
+  #   get :autocomplete_ingredient_name, on: :collection
+  # end
     
-  resources :ingredients
-  
+  resources :ingredients do
+    get :autocomplete_ingredient_name, on: :collection # 追加
+  end
 end

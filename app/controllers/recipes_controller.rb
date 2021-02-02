@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
     @categories = Category.all
     @recipe.steps.build
     @recipe.recipe_ingredients.build
+    @recipe.ingredients.build
     # カテゴリーの取得とingredientsの取得　.all
   end
   
