@@ -8,7 +8,8 @@ html {
 body {
     font-family: Helvetica;
     font-size: 1.2rem;
-    color: #333;
+    // color: #333;
+    color: #abd1c6;
 }
 
 *, *::before, *::after {
@@ -24,7 +25,9 @@ body {
 .top-wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(230, 180, 40, 0.9);
+  // background-color: rgba(230, 180, 40, 0.9);
+  background-color: #004643;
+
 }
 
 .left-container {
@@ -42,7 +45,7 @@ body {
     padding-left: 20vw;
     height: 100vh;
     width: 50vw;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
     color: #fff;
   }
 }
@@ -58,6 +61,7 @@ body {
     margin: 3vh 5vw;
     width: 40vw;
     line-height: 0;
+    color: #fffffe;
     
     .login-info {
       float: left;
@@ -69,6 +73,7 @@ body {
         height: 5vh;
         width: 16vw;
         background-color: rgba(0, 0, 0, 0.1);
+        // background-color: #abd1c6;
         border: none;
       }
     }
@@ -82,7 +87,10 @@ body {
       .mini-btn {
         font-size: 1.2rem;
         color: white;
-        background-color: black;
+        // background-color: black;
+        background-color: #f9bc60;
+        color: #001e1d;
+        font-weight: bold;
         width: 5vw;
         height: 5vh;
         border-radius: 30px;
@@ -97,6 +105,7 @@ body {
     font-size: 3.2rem;
     font-weight: bold;
     margin: 2vh auto;
+    color: #fffffe;
   }
   
   .home-image {
@@ -108,13 +117,18 @@ body {
   
   .account-section {
     margin: 5vh 5vw;
+    color: #abd1c6;
+    
 
     .btn {
-      color: white;
-      background-color: black;
+      // color: white;
+      // background-color: black;
+      color: #001e1d;
+      background-color: #f9bc60;
       width: 40vw;
       margin: 1vh auto;
       border-radius: 30px;
+      font-weight: bold;
     }
   }
 }

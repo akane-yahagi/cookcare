@@ -24,9 +24,15 @@
                                 <%= image_tag "no_image.jpg", class: "show-image" %>
                             <% end %>
                         </div>
-                        <div class="memo-box">
-                            <p>Memo</p>
-                        </div>
+                        <% if @recipe.user_id == @current_user.id %>
+                            <div class="memo-box">
+                                <p>Memoじゃない何か表記</p>
+                            </div>
+                        <% else %>
+                            <div class="memo-box">
+                                <p>Memo</p>
+                            </div>
+                        <% end %>
                     </div>
                     <div class="show-ingredients-box">
                         <p>Ingredients</p>

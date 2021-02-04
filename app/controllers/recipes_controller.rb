@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   autocomplete :ingredient, :name, full: true
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.published.order(created_at: :desc).includes(:user)
   end
   
   def new
@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
   end
   
   def create
+    @recipe = current_user.recipes.new(recipe_params)
     params[:recipe][:recipe_ingredients_attributes].each do |attribute|
       attribute.each_with_index do |ingredient, index|
         next if index == 0
@@ -28,18 +29,17 @@ class RecipesController < ApplicationController
           
           @ingredient.save
         end
+        @recipe.recipe_ingredients.build(ingredient: @ingredient, quantity: ingredient[:quantity])
+        # @recipe.ingredients << @ingredient
       end
     end
     
-    @recipe = current_user.recipes.new(recipe_params)
     # binding.pry
+    # # binding.pry
     # #複数だからidがうまくひきわたせない、update_attributes
-    # @recipe.ingredient_ids = @ingredient.ids
-    
     if @recipe.save
       redirect_to recipes_path, seccess: "投稿完了"
     else
-      binding.pry
       flash[:danger] = "投稿失敗"
       render :new
     end
@@ -61,6 +61,8 @@ class RecipesController < ApplicationController
   
   private
   def recipe_params
-    params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_ingredients_attributes: RecipeIngredient::NESTED_ALLOWED_PARAMS, ingredients_attributes: Ingredient::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
+    params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
   end
 end
+
+# recipe_ingredients_attributes: RecipeIngredient::NESTED_ALLOWED_PARAMS, ingredients_attributes: Ingredient::NESTED_ALLOWED_PARAMS,
