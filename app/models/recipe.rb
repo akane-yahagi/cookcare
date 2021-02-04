@@ -2,9 +2,13 @@ class Recipe < ApplicationRecord
     
     mount_uploader :recipe_image, RecipeImageUploader
     
-    ALLOWED_PARAMS = [:title, :user_id, :recipe_image, {category_ids: []}, {ingredient_ids: []}]
+    ALLOWED_PARAMS = [:title, :user_id, :recipe_image, :status, {category_ids: []}, {ingredient_ids: []}]
    
     validates :title, presence: true, length: {maximum: 20}
+    
+    enum status: { draft: 0, published: 1 }
+    validates :status, inclusion: { in: Recipe.statuses.keys }
+    
 
     belongs_to :user
     
