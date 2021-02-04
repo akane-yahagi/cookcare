@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   autocomplete :ingredient, :name, full: true
   
   def index
-    @recipes = Recipe.published.order(created_at: :desc).includes(:user)
+    @recipes = Recipe.published.order(created_at: :desc).includes(:user, :favorite_users)
   end
   
   def new
@@ -51,6 +51,8 @@ class RecipesController < ApplicationController
     @categories = Category.all
     @recipe_categories = @recipe.recipe_categories
     @recipe_ingredients = @recipe.recipe_ingredients
+    @favorite = Favorite.new
+    @favorite_recipe = @recipe.favorites.find_by(user_id: current_user)
   end
   
   def destroy

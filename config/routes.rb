@@ -8,14 +8,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users
-  resources :recipes
+  resources :recipes do
+    resources :favorites, only: [:create, :destroy]
+  end
 
   resources :ingredients do
     get :autocomplete_ingredient_name, on: :collection
   end
-  
-  get 'favorites/index'
-  post '/favorites', to: 'favorites#create'
-  delete '/favorites', to: 'favorites#destroy'
   
 end

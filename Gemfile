@@ -80,3 +80,5 @@ gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
 
 gem 'roo'
+
+gem 'enum_help'

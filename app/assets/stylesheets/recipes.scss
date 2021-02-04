@@ -41,7 +41,6 @@ body {
         float: left;
         
     }
-    
 }
 
 
@@ -212,6 +211,19 @@ body {
 }
 
 //for recipe#show
+.favorite-btn {
+    float: right;
+    font-size: 1.2rem;
+    color: #001e1d;
+    background-color: #f9bc60;
+    width: 8vw;
+    height: 5vh;
+    border-radius: 30px;
+    padding: 1vh 1vw;
+    margin-top: 1.5vh;
+    margin-right: 1vw;
+    }
+
 .show-title-box {
     height: 10%;
     width: 60%;
@@ -263,6 +275,16 @@ body {
         background-color: rgba(0, 0, 0, 0.05);
         border: none;
         float: left;
+        
+        .memo-blank {
+            height: 80%;
+            width: 100%;
+            // margin: 0 2%;
+            border: none;
+            // border-bottom: 1px solid #787878;
+            // margin-bottom: 1%;
+            background-color: transparent;
+        }
     }
 }
 

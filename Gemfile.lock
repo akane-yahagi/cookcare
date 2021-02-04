@@ -91,6 +91,8 @@ GEM
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     debug_inspector (0.0.3)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -251,6 +253,7 @@ DEPENDENCIES
   chromedriver-helper
   cocoon
   coffee-rails (~> 4.2)
+  enum_help
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails

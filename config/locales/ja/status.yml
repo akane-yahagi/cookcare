@@ -1,0 +1,6 @@
+ja:
+  status:
+    favorite:
+      cooked: 'Add to Cooked'
+      favorite: 'Add to Favorites'
+      not_favorite: 'not my favorite'
