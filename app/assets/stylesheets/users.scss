@@ -8,7 +8,7 @@ html {
 body {
     font-family: Helvetica;
     font-size: 1.2rem;
-    color: #333;
+    color: #abd1c6;
 }
 
 *, *::before, *::after {
@@ -24,7 +24,7 @@ body {
 .users-new-wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(230, 180, 40, 0.9)
+  background-color: #004643;
 }
 
 .users-left-container {
@@ -42,7 +42,7 @@ body {
     padding-left: 20vw;
     height: 100vh;
     width: 50vw;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
     color: #fff;
   }
 }
@@ -60,6 +60,7 @@ body {
     font-size: 3.2rem;
     font-weight: bold;
     margin: 2vh auto;
+    // color: #fffffe;
   }
   
   .users-home-image {
@@ -72,29 +73,37 @@ body {
     width: 40vw;
     height: 20vh;
     margin: 1vh 5vw;
-    background-color: rgba(0, 0, 0, 0.1);
+    // background-color: rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     
     .users-blank {
         height: 5vh;
-        width: 16vw;
-        background-color: rgba(0, 0, 0, 0.05);
+        // width: 16vw;
+        width: 19vw;
+        background-color: rgba(0, 0, 0, 0.1);
         border: none;
     }
-    .confirm-info {
+    .confirm-info-left {
         float: left;
-        margin: 0 2vw;
+        margin: 0 ;
     }
+    
+    .confirm-info-right {
+      float: right;
+    }
+    
     .users-text {
       padding-top: 1vh;
+      color: #abd1c6;
     }
   }
+  
   .users-account-section {
     margin: 3vh 5vw;
 
     .btn {
-      color: white;
-      background-color: black;
+      color: #001e1d;
+      background-color: #f9bc60;
       width: 40vw;
       border-radius: 30px;
     }

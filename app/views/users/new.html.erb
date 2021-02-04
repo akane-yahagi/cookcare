@@ -10,18 +10,18 @@
         
         <div class="users-right-container">
             <div class="greeting">
-                <%= link_to 'Welcome to Cookcare', root_url %>
+                <%= link_to 'Welcome to Cookcare', root_url, :style=>"color:#fffffe;" %>
             </div>
             <image class="users-home-image"></image>
             <%= form_for @user do |f| %>
                 <div class="users-confirm clearfix">
-                    <div class="confirm-info">
+                    <div class="confirm-info-left">
                         <%= f.label :name, class: "users-text" %><br>
                         <%= f.text_field :name, class: 'users-blank' %><br>
                         <%= f.label :email, class: "users-text" %><br>
                         <%= f.text_field :email, class: 'users-blank' %>
                     </div>
-                    <div class="confirm-info">
+                    <div class="confirm-info-right">
                         <%= f.label :password, class: "users-text" %><br>
                         <%= f.password_field :password, class: 'users-blank' %><br>
                         <%= f.label :password_confirmation, class: "users-text" %><br>

@@ -10,17 +10,17 @@
         
         <div class="sessions-right-container">
             <div class="greeting">
-                <%= link_to 'Welcome to Cookcare', root_url %>
+                <%= link_to 'Welcome to Cookcare', root_url, :style=>"color:#fffffe;" %>
             </div>
             <image class="sessions-home-image"></image>
             <%= form_for :session, url: login_path do |f| %>
                 <div class="sessions-confirm clearfix">
-                    <div class="sessions-info">
-                        <%= f.label :email %><br>
+                    <div class="sessions-info-left">
+                        <%= f.label :email, class: "sessions-text" %><br>
                         <%= f.text_field :email, class: "sessions-blank" %>
                     </div>
-                    <div class="sessions-info">
-                        <%= f.label :password %><br>
+                    <div class="sessions-info-right">
+                        <%= f.label :password, class: "sessions-text" %><br>
                         <%= f.password_field :password, class: "sessions-blank" %>
                     </div>
                 </div>

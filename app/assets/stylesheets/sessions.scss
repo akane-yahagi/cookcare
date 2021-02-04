@@ -24,7 +24,7 @@ body {
 .sessions-wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(230, 180, 40, 0.9);
+  background-color: #004643;
 }
 
 .sessions-left-container {
@@ -42,7 +42,7 @@ body {
     padding-left: 20vw;
     height: 100vh;
     width: 50vw;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
     color: #fff;
   }
 }
@@ -71,18 +71,26 @@ body {
     width: 40vw;
     height: 20vh;
     margin: 1vh 5vw;
-    background-color: rgba(0, 0, 0, 0.1);
+    // background-color: rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     
     .sessions-blank {
         height: 5vh;
-        width: 16vw;
-        background-color: rgba(0, 0, 0, 0.05);
+        width: 19vw;
+        background-color: rgba(0, 0, 0, 0.1);
         border: none;
     }
-    .sessions-info {
-        float: left;
-        margin: 2vw;
+    .sessions-info-left {
+      float: left;
+      margin-top: 4vh;
+    }
+    .sessions-info-right {
+      float: right;
+      margin-top: 4vh;
+    }
+    
+    .sessions-text {
+      color: #abd1c6;
     }
   }
   
@@ -90,8 +98,8 @@ body {
     margin: 3vh 5vw;
 
     .btn {
-      color: white;
-      background-color: black;
+      color: #001e1d;
+      background-color: #f9bc60;
       width: 40vw;
       border-radius: 30px;
     }
