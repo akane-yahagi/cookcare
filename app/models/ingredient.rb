@@ -8,7 +8,7 @@ class Ingredient < ApplicationRecord
     has_many :recipe_ingredients, dependent: :destroy
     has_many :recipes, through: :recipe_ingredients
     
-    ##uniqueエラーでた。最初のみ使える?
+    # #uniqueエラーでた。最初のみ使える?
     # #csvファイルを扱うためのgemを読み込む
     # CSV.foreach('db/ingredient_data.csv') do |row|
     # #foreachは、ファイル（hoge.csv）の各行を引数として、ブロック(do~endまでを範囲とする『引数のかたまり』)を繰り返し実行する

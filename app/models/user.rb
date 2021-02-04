@@ -12,4 +12,7 @@ class User < ApplicationRecord
     validates :password, presence: true, format: {with: VALID_PASSWORD_REGEX}
     
     has_many :recipes
+    
+    has_many :favorites
+    has_many :favorite_recipes, through: :favorites, source: 'recipe'
 end
