@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favorites/index'
   get 'sessions/new'
   root 'home#top'
   
@@ -8,11 +9,13 @@ Rails.application.routes.draw do
   
   resources :users
   resources :recipes
-  # resources :recipes do
-  #   get :autocomplete_ingredient_name, on: :collection
-  # end
-    
+
   resources :ingredients do
-    get :autocomplete_ingredient_name, on: :collection # 追加
+    get :autocomplete_ingredient_name, on: :collection
   end
+  
+  get 'favorites/index'
+  post '/favorites', to: 'favorites#create'
+  delete '/favorites', to: 'favorites#destroy'
+  
 end
