@@ -2,9 +2,8 @@
     <%= form_for @recipe do |f| %>
         <div class="nav">
             <%= link_to "Cookcare", recipes_path, class: "title" %>
-            <%= f.submit "Post", class: "new-btn" %>
-            <!--<%= f.submit "Save", class: "new-btn" %>-->
-            <!--<%= f.submit "Delete", class: "new-btn" %>-->
+            <%= f.submit "Save", class: "new-btn" %>
+            <%= f.select :status, Recipe.statuses.keys.to_a, {}, class: "status-btn" %>
         </div>
         <div class="recipe-wrapper clearfix">
             <div class="side-container"></div>
@@ -17,9 +16,11 @@
                         </div>
                         <div class="category-box">
                             <p>Category</p>
-                            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
-                                <%= b.label { b.check_box + b.text } %>
-                            <% end %>
+                            <div class="category-blank">
+                                <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
+                                    <%= b.label { b.check_box + b.text } %>
+                                <% end %>
+                            </div>
                         </div>
                         <div class="ingredient-box">
                             <p>Ingredients</p>
@@ -29,7 +30,7 @@
                                 </div>
                             <% end %>
                             <div class="links">
-                                <%= link_to_add_association "Add Quantity",f, :recipe_ingredients, class: "step-btn" %>
+                                <%= link_to_add_association "Add Ingredient",f, :recipe_ingredients, class: "ingredient-btn" %>
                             </div>
                         </div>
                     </div>
