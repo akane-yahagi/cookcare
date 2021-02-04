@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    @user.image_string = "default_user_image.png"
     
     if @user.save
       redirect_to sessions_new_path, success: "登録完了"
