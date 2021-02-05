@@ -371,3 +371,19 @@ body {
 
     }
 }
+
+// for recipes#search
+.search-blank {
+    float: right;
+    font-size: 1.2rem;
+    color: #abd1c6;
+    // background-color: #f9bc60;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 20vw;
+    height: 5vh;
+    // border-radius: 30px;
+    border: none;
+    padding: 1vh 1vw;
+    margin-top: 1.5vh;
+    margin-right: 1vw;
+}

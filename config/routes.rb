@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :users
   resources :recipes do
     resources :favorites, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 
   resources :ingredients do

@@ -6,6 +6,18 @@ class RecipesController < ApplicationController
     @recipes = Recipe.published.order(created_at: :desc).includes(:user, :favorite_users)
   end
   
+  def search
+    redirect_to recipes_path if params[:search] == ""
+    @array_searches = params[:search].split(/[[:blank:]]+/)
+    @recipes = []
+    @array_searches.each do |search|  # 分割したキーワードごとに検索
+      next if search == "" 
+      @recipes += Recipe.where('title LIKE(?)', "%#{search}%") # 部分一致で検索 
+    end
+    @recipes.uniq!
+    # @recipes = Recipe.published.order(created_at: :desc).search(params[:search])
+  end
+  
   def new
     @recipe = Recipe.new
     @categories = Category.all
@@ -37,6 +49,7 @@ class RecipesController < ApplicationController
     # binding.pry
     # # binding.pry
     # #複数だからidがうまくひきわたせない、update_attributes
+    
     if @recipe.save
       redirect_to recipes_path, seccess: "投稿完了"
     else
@@ -64,6 +77,10 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
+  end
+  
+  def search_recipe_params
+    params.fetch(:q, '').permit(:body)
   end
 end
 
