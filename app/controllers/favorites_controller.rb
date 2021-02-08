@@ -7,8 +7,11 @@ class FavoritesController < ApplicationController
   end
   
   def create
-    @favorite = @recipe.favorites.create(favorite_params)
+    @recipe = Recipe.find(params[:recipe_id])
+    @favorite = @recipe.favorites.new(favorite_params)
+    @favorite.user_id = current_user.id
     
+    binding.pry
     if @favorite.save
       if @favorite.cooked?
         redirect_to recipes_url, success: "Cookedに登録"
@@ -29,6 +32,6 @@ class FavoritesController < ApplicationController
   end
   
   def favorite_params
-  params.required(:favorite).permit(:memo, :status, :date).merge(user_id: current_user.id, recipe_id: params[:recipe_id])
+  params.required(:favorite).permit(:memo, :status, :date)
   end
 end

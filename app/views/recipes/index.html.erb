@@ -9,7 +9,8 @@
     <div class="side-container">
         <%= @current_user.name %>
         <%= link_to "Edit", edit_user_path(@current_user) %><br>
-        <%= link_to "Post Recipe", new_recipe_path %>
+        <%= link_to "Post Recipe", new_recipe_path %><br>
+        <%= link_to "Diet", diets_path %>
         <%= form_for :session, url: logout_path, method: :delete do |f| %>
             <%= f.submit 'Log Out', class: 'btn' %>
         <% end %>

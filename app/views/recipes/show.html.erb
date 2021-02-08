@@ -4,8 +4,8 @@
             <%= link_to "Cookcare", recipes_path, class: "title" %>
             <% unless @recipe.user_id == @current_user.id %>
                 <%= f.submit "Save", class: "new-btn" %>
-                    <%= f.select :status, Favorite.localed_statuses, {}, class: 'favorite-btn' %>
-                    <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: "date-btn" %>
+                <%= f.select :status, Favorite.localed_statuses, {}, class: 'favorite-btn' %>
+                <%= f.date_field :date, value: Time.now.strftime("%Y-%m-%d"), class: "date-btn" %>
             <% end %>
         </div>
         <div class="recipe-wrapper clearfix">
