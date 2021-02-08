@@ -13,15 +13,16 @@ class FavoritesController < ApplicationController
     
     binding.pry
     if @favorite.save
-      if @favorite.cooked?
-        redirect_to recipes_url, success: "Cookedに登録"
-      elsif @favorite.favorite?
-        redirect_to recipes_url, success: "favoritesに登録しました"
-      else
-        redirect_to recipes_url, success: "not my favorite"
-      end
+      # if @favorite.cooked?
+      #   redirect_to recipes_url, success: "Cookedに登録"
+      # elsif @favorite.favorite?
+      #   redirect_to recipes_url, success: "favoritesに登録しました"
+      # else
+      #   redirect_to recipes_url, success: "not my favorite"
+      # end
+      redirect_to recipes_url, success: "登録成功"
     else
-        redirect_to recipes_url, danger: "登録に失敗しました"
+      redirect_to recipes_url, danger: "登録に失敗しました"
     end
   end
   

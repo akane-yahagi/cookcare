@@ -1,9 +1,38 @@
-<%= month_calendar events: @diets do |date, diets| %>
-  <%= date.day %>
-  
-  <% diets.each do |diet| %>
-    <div>
-      <%= diet.favorite_id %>
+<div class="nav">
+    <%= link_to "Cookcare", recipes_path, class: "title" %>
+</div>
+<div class="recipe-wrapper clearfix">
+    <div class="side-container">
+        <%= @current_user.name %>
+        <%= link_to "Edit", edit_user_path(@current_user) %><br>
+        <%= link_to "Post Recipe", new_recipe_path %><br>
+        <%= link_to "Diet", diets_path %>
+        <%= form_for :session, url: logout_path, method: :delete do |f| %>
+            <%= f.submit 'Log Out', class: 'btn' %>
+        <% end %>
     </div>
-  <% end %>
-<% end %>
+    <div class="main-container">
+      <div class="diet-section clearfix">
+        <div class="left-diet-section">
+          <%= month_calendar events: @diets do |date, diets| %>
+            <%= date.day %>
+            
+            <% diets.each do |diet| %>
+              <div>
+                <%= diet.favorite_id %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="right-diet-section">
+          <%= form_for @diet do |f| %>
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
+              <%= b.label { b.check_box + b.text } %>
+            <% end %>
+            <%= f.submit "Save", class: "new-btn" %>
+          <% end %>
+        </div>
+        
+      </div>
+    </div>
+</div>
