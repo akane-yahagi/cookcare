@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'diets/index'
   get 'favorites/index'
   get 'sessions/new'
   root 'home#top'
@@ -18,5 +19,7 @@ Rails.application.routes.draw do
   resources :ingredients do
     get :autocomplete_ingredient_name, on: :collection
   end
+  
+  resources :diets
   
 end

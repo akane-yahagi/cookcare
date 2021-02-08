@@ -15,4 +15,7 @@ class User < ApplicationRecord
     
     has_many :favorites
     has_many :favorite_recipes, through: :favorites, source: 'recipe'
+    
+    has_many :user_diets
+    has_many :diets, through: :user_diets
 end

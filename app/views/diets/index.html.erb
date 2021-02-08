@@ -1,0 +1,9 @@
+<%= month_calendar events: @diets do |date, diets| %>
+  <%= date.day %>
+  
+  <% diets.each do |diet| %>
+    <div>
+      <%= diet.recipes.title %>
+    </div>
+  <% end %>
+<% end %>

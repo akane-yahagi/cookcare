@@ -82,3 +82,5 @@ gem 'rails4-autocomplete'
 gem 'roo'
 
 gem 'enum_help'
+
+gem 'simple_calendar', '~> 2.0'

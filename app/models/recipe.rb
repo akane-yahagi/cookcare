@@ -28,4 +28,7 @@ class Recipe < ApplicationRecord
     has_many :favorites
     has_many :favorite_users, through: :favorites, source: 'user'
     
+    has_many :recipe_diets
+    has_many :diets, through: :recipe_diets
+    
 end
