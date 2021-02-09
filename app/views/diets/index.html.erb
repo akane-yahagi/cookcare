@@ -19,22 +19,21 @@
 						
 						<% diets.each do |diet| %>
 							<div>
-								<%= diet.favorite_id %>
+								<%= diet.category_diets.ids %>
 							</div>
 						<% end %>
 					<% end %>
 				</div>
 				<div class="right-diet-section">
-					<div class=>
-						
-					</div>
-					<%= form_for @diet do |f| %>
-						<%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d"), class: "date-btn" %><br>
-						<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
-							<%= b.label { b.check_box + b.text } %><br>
+					<div class="diet-create-section">
+						<%= form_for @diet do |f| %>
+							<%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d"), class: "date-btn" %><br>
+							<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
+								<%= b.label { b.check_box + b.text } %><br>
+							<% end %>
+							<%= f.submit "Save", class: "new-btn" %>
 						<% end %>
-						<%= f.submit "Save", class: "new-btn" %>
-					<% end %>
+					</div>
 				</div>
 				
 			</div>

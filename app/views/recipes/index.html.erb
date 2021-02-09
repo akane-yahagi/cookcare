@@ -7,8 +7,12 @@
 </div>
 <div class="recipe-wrapper clearfix">
     <div class="side-container">
-        <%= @current_user.name %>
-        <%= link_to "Edit", edit_user_path(@current_user) %><br>
+        <div class="account-section">
+            <!--<%= image_tag "/user_images/#{@current_user.image_string}" %>-->
+            <%= @current_user.name %>
+            <%= link_to "Edit", edit_user_path(@current_user) %><br>
+            
+        </div>
         <%= link_to "Post Recipe", new_recipe_path %><br>
         <%= link_to "Diet", diets_path %>
         <%= form_for :session, url: logout_path, method: :delete do |f| %>
