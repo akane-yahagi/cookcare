@@ -1,24 +1,24 @@
 class DietsController < ApplicationController
 	def index
-		@diets = Diet.all
+		@diets = Diet.where(user_id: current_user).order(start_time: "desc")
 		@diet = Diet.new
 		@categories = Category.all
-		@category_diet = @diet.category_diets
+		@category_diets = @diet.category_diets
 	end
 	
 	def create
 		@diet = Diet.new(diet_params)
-		
+		# binding.pry
 		if @diet.save
-			redirect_to diets_path, seccess: "投稿完了"
+			redirect_to diets_path, seccess: "記録完了"
 		else
-			flash[:danger] = "投稿失敗"
+			flash[:danger] = "記録失敗"
 			render :index
 		end
 	end
 	
 	private
 	def diet_params
-		params.require(:diet).permit(:start_time, category_diets_attributes: [:category_id])
+		params.require(:diet).permit(:recipe_id, :title, :place, :start_time, category_ids: [], category_diets_attributes: [:category_id]).merge(user_id: current_user.id)
 	end
 end
