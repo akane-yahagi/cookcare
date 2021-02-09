@@ -3,4 +3,5 @@
 		<%= ingredient.text_field :name, placeholder: "ingredent", class: "ingredient-blank" %>
 	<% end %>
 	<%= f.text_field :quantity, placeholder: "quantity", class: "ingredient-blank" %>
+	<%= link_to_remove_association image_tag("minus_icon.png"), f %>
 </div>

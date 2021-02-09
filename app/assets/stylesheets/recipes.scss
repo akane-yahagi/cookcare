@@ -245,6 +245,11 @@ body {
     border: none;
     display: block;
     float: left;
+    
+    .show-title {
+        font-size: 1.8rem;
+        margin-left: 10px;
+    }
 }
 
 .show-username-box {
@@ -255,6 +260,11 @@ body {
     border: none;
     display: block;
     float: left;
+    
+    .show-username {
+        font-size: 1.8rem;
+        margin-left: 10px;
+    }
 }
 
 .info-box {
@@ -279,23 +289,24 @@ body {
             height: 80%;
             width: 90%;
             object-fit: cover;
+            margin-left: 10px;
         }
     }
     
     .memo-box {
         height: 100%;
         width: 63%;
-        background-color: rgba(0, 0, 0, 0.05);
-        border: none;
+        background-color: #abd1c6;
+        color: #001e1d;
         float: left;
         
         .memo-blank {
             height: 80%;
-            width: 100%;
-            // margin: 0 2%;
+            width: 98%;
+            margin-left: 2%;
+            font-size: 1.8rem;
+            font-weight: bold;
             border: none;
-            // border-bottom: 1px solid #787878;
-            // margin-bottom: 1%;
             background-color: transparent;
         }
     }
@@ -308,16 +319,59 @@ body {
     background-color: rgba(0, 0, 0, 0.05);
     border: none;
     display: block;
+    
+    .show-ingredient {
+        width: 45%;
+        font-size: 1.5rem;
+        margin: 10px;
+        border: none;
+        border-bottom: 1px solid #787878;
+        float: left;
+        padding-left: 2%;
+    }
+    
+    .show-quantity {
+        width: 45%;
+        font-size: 1.5rem;
+        margin: 10px;
+        border: none;
+        border-bottom: 1px solid #787878;
+        float: left;
+        padding-left: 2%;
+    }
 }
 
 .show-category-on {
-    color: red;
+    margin-right: 2px;
+    height: 3.5vh;
+    width: 3.8vw;
+    text-align: center;
+    line-height: 3.5vh;
+    border-radius: 30px;
+    color: #fffffe;
+    background-color: #004643;
     float: left;
 }
 
 .show-category-off {
+    margin-right: 2px;
+    height: 3.5vh;
+    width: 3.8vw;
+    text-align: center;
+    line-height: 3.5vh;
+    border-radius: 30px;
     color: gray;
+    background-color: #abd1c6;
     float: left;
+}
+.show-step {
+    width: 96%;
+    font-size: 1.5rem;
+    margin: 2%;
+    border: none;
+    border-bottom: 1px solid #787878;
+    float: left;
+    padding-left: 2%;
 }
 
 // for recipe#index
@@ -383,6 +437,7 @@ body {
     height: 5vh;
     // border-radius: 30px;
     border: none;
+    border-bottom: 1.5px solid #f9bc60;
     padding: 1vh 1vw;
     margin-top: 1.5vh;
     margin-right: 1vw;

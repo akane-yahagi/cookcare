@@ -15,11 +15,15 @@
                     <div class="recipe-left-section clearfix">
                         <div class="show-title-box">
                             <p>Title</p>
-                            <%= @recipe.title %>
+                            <div class="show-title">
+                                <%= @recipe.title %>
+                            </div>
                         </div>
                         <div class="show-username-box">
                             <p>Username</p>
-                            <%= @recipe.user.name%>
+                            <div class="show-username">
+                                <%= @recipe.user.name%>
+                            </div>
                         </div>
                         <div class="info-box clearfix">
                             <div class="image-box">
@@ -48,11 +52,15 @@
                                 </div>
                             <% end %>
                         </div>
-                        <div class="show-ingredients-box">
+                        <div class="show-ingredients-box clearfix">
                             <p>Ingredients</p>
                             <% @recipe_ingredients.each do |recipe_ingredient| %>
-                                <%= recipe_ingredient.ingredient.name %>
-                                <%= recipe_ingredient.quantity %><br>
+                                <div class="show-ingredient">
+                                    <%= recipe_ingredient.ingredient.name %>
+                                </div>
+                                <div class="show-quantity">
+                                    <%= recipe_ingredient.quantity %>
+                                </div>
                             <% end %>
                         </div>
                     </div>
@@ -81,7 +89,9 @@
                         <div class="step-box">
                             <p>Steps</p>
                             <% @steps.each do |step| %>
-                                <%= step.step %><br>
+                                <div class="show-step">
+                                    <%= step.step %>
+                                </div>
                             <% end %>
                         </div>
                     </div>
