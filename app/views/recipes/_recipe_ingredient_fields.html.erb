@@ -1,6 +1,6 @@
 <div class="nested-fields">
-    <%= f.fields_for :ingredient do |ingredient| %>
-      <%= ingredient.text_field :name, placeholder: "ingredent", class: "ingredient-blank" %>
-    <% end %>
-    <%= f.text_field :quantity, placeholder: "quantity", class: "ingredient-blank" %>
+	<%= f.fields_for :ingredient do |ingredient| %>
+		<%= ingredient.text_field :name, placeholder: "ingredent", class: "ingredient-blank" %>
+	<% end %>
+	<%= f.text_field :quantity, placeholder: "quantity", class: "ingredient-blank" %>
 </div>

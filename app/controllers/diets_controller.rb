@@ -1,8 +1,8 @@
 class DietsController < ApplicationController
-  def index
-    @diet = Diet.new
-    @categories = Category.all
-    @diets = Diet.all
-    
-  end
+	def index
+		@diets = Diet.all
+		@diet = Diet.new
+		@categories = Category.all
+		
+	end
 end

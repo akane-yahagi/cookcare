@@ -1,107 +1,107 @@
 html, body {
-  margin: 0;
+	margin: 0;
 }
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-    font-family: Helvetica;
-    font-size: 1.2rem;
-    color: #333;
+		font-family: Helvetica;
+		font-size: 1.2rem;
+		color: #333;
 }
 
 *, *::before, *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
+	content: '';
+	display: block;
+	clear: both;
 }
 
 .sessions-wrapper {
-  width: 100vw;
-  height: 100vh;
-  background-color: #004643;
+	width: 100vw;
+	height: 100vh;
+	background-color: #004643;
 }
 
 .sessions-left-container {
-  background-image: url("top_left.jpg");
-  background-size: cover;
-  display: block;
-  width: 50vw;
-  height: 100vh;
-  float: left;
-  
-  .sessions-left-text {
-    font-family: 'Playball';
-    font-size: 2.8rem;
-    padding-top: 75vh;
-    padding-left: 20vw;
-    height: 100vh;
-    width: 50vw;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #fff;
-  }
+	background-image: url("top_left.jpg");
+	background-size: cover;
+	display: block;
+	width: 50vw;
+	height: 100vh;
+	float: left;
+	
+	.sessions-left-text {
+		font-family: 'Playball';
+		font-size: 2.8rem;
+		padding-top: 75vh;
+		padding-left: 20vw;
+		height: 100vh;
+		width: 50vw;
+		background-color: rgba(0, 0, 0, 0.2);
+		color: #fff;
+	}
 }
 
 .sessions-right-container {
-  display: block;
-  width: 50vw;
-  height: 100vh;
-  float: right;
-  font-size: 1.5rem;
+	display: block;
+	width: 50vw;
+	height: 100vh;
+	float: right;
+	font-size: 1.5rem;
 
-  .greeting {
-    font-family: 'Playball';
-    text-align: center;
-    font-size: 3.2rem;
-    font-weight: bold;
-    margin: 2vh auto;
-  }
-  .sessions-home-image {
-    border: 1px solid black;
-    width: 40vw;
-    height: 50vh;
-    margin: 2vh 5vw;
-  }
-  .sessions-confirm {
-    width: 40vw;
-    height: 20vh;
-    margin: 1vh 5vw;
-    // background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
-    
-    .sessions-blank {
-        height: 5vh;
-        width: 19vw;
-        background-color: rgba(0, 0, 0, 0.1);
-        border: none;
-    }
-    .sessions-info-left {
-      float: left;
-      margin-top: 4vh;
-    }
-    .sessions-info-right {
-      float: right;
-      margin-top: 4vh;
-    }
-    
-    .sessions-text {
-      color: #abd1c6;
-    }
-  }
-  
-  .sessions-account-section {
-    margin: 3vh 5vw;
+	.greeting {
+		font-family: 'Playball';
+		text-align: center;
+		font-size: 3.2rem;
+		font-weight: bold;
+		margin: 2vh auto;
+	}
+	.sessions-home-image {
+		border: 1px solid black;
+		width: 40vw;
+		height: 50vh;
+		margin: 2vh 5vw;
+	}
+	.sessions-confirm {
+		width: 40vw;
+		height: 20vh;
+		margin: 1vh 5vw;
+		// background-color: rgba(0, 0, 0, 0.1);
+		border-radius: 30px;
+		
+		.sessions-blank {
+				height: 5vh;
+				width: 19vw;
+				background-color: rgba(0, 0, 0, 0.1);
+				border: none;
+		}
+		.sessions-info-left {
+			float: left;
+			margin-top: 4vh;
+		}
+		.sessions-info-right {
+			float: right;
+			margin-top: 4vh;
+		}
+		
+		.sessions-text {
+			color: #abd1c6;
+		}
+	}
+	
+	.sessions-account-section {
+		margin: 3vh 5vw;
 
-    .btn {
-      color: #001e1d;
-      background-color: #f9bc60;
-      width: 40vw;
-      border-radius: 30px;
-    }
-  }
+		.btn {
+			color: #001e1d;
+			background-color: #f9bc60;
+			width: 40vw;
+			border-radius: 30px;
+		}
+	}
 }
