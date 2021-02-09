@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .diet-section {
-    border: 1px solid #787878;
+    border: none;
     background-color: #fff;
     width: 98%;
     height: 97%;
@@ -27,4 +27,26 @@
             border-radius: 15px;
         }
     }
+}
+
+.simple-calendar {
+    border: 3.5px solid #004643;
+    margin: 2.5% 2%;
+    height: 95%;
+    width: 96%;
+    
+    .calendar-heading {
+        height: 5%;
+        text-align: center;
+        background-color: #004643;
+        color: #fffffe;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    
+    .table {
+        height: 95%;
+        width: 100%;
+    }
+    
 }

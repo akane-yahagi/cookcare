@@ -15,10 +15,10 @@
 			<div class="diet-section clearfix">
 				<div class="left-diet-section">
 					<%= month_calendar events: @diets do |date, diets| %>
-						<%= date.day %>
+						<%= date.day %><br>
 						
 						<% diets.each do |diet| %>
-							<%= diet.title %>
+							<%= diet.title %><br>
 							<%= diet.place %>
 							<% @category_diets.each do |category_diet| %>
 								<%= diet.category_diet.name %>

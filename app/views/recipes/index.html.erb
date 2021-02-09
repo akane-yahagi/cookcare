@@ -8,15 +8,29 @@
 <div class="recipe-wrapper clearfix">
     <div class="side-container">
         <div class="account-section">
-            <!--<%= image_tag "/user_images/#{@current_user.image_string}" %>-->
-            <%= @current_user.name %>
-            <%= link_to "Edit", edit_user_path(@current_user) %><br>
+            <div class="account-info-section clearfix">
+                <%= image_tag @current_user.image_string, class: "account-image" %>
+                <div class="name-section">
+                    <%= link_to @current_user.name, edit_user_path(@current_user), :style=> "color: #004643;" %>
+                </div>
+            </div>
+            <div class="follow-section">
+                <%= link_to "Followed : #", edit_user_path(@current_user), :style=> "color: #004643;" %><br>
+                <%= link_to "Follower : #", edit_user_path(@current_user), :style=> "color: #004643;" %>
+            </div>
+        </div>
+        <div class="create-section">
+            <%= link_to "Post Recipe", new_recipe_path, :style=> "color: #004643;" %><br>
+        </div>
+        <div class="list-section">
             
         </div>
-        <%= link_to "Post Recipe", new_recipe_path %><br>
-        <%= link_to "Diet", diets_path %>
+        <div class="diet-section">
+            <%= link_to "Diet", diets_path, :style=> "color: #004643;" %>
+        </div>
+        
         <%= form_for :session, url: logout_path, method: :delete do |f| %>
-            <%= f.submit 'Log Out', class: 'btn' %>
+            <%= f.submit 'Log Out', class: 'logout-btn' %>
         <% end %>
     </div>
     <div class="main-container">
