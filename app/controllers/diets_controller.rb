@@ -2,8 +2,7 @@ class DietsController < ApplicationController
 	def index
 		@diets = Diet.where(user_id: current_user).order(start_time: "desc")
 		@diet = Diet.new
-		@categories = Category.all
-		@category_diets = @diet.category_diets
+		# binding.pry
 	end
 	
 	def create

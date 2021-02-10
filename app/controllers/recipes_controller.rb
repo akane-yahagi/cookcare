@@ -12,8 +12,9 @@ class RecipesController < ApplicationController
 		@recipes = []
 		@array_searches.each do |search|  # 分割したキーワードごとに検索
 			next if search == "" 
-			# @recipes += Recipe.where('title LIKE(?)', "%#{search}%") # 部分一致で検索 
-			@recipes += Recipe.includes(:recipe_ingredients).where(['title LIKE ? OR name LIKE ? ', "%#{search}%"]).references(:recipe_ingredients)
+			recipes = Recipe.joins(:ingredients)
+			@recipes += recipes.where('ingredients.name LIKE ? ', "%#{search}%").or(recipes.where('title LIKE ?', "%#{search}%"))
+			#原則前方一致
 		end
 		@recipes.uniq!
 		# @recipes = Recipe.published.order(created_at: :desc).search(params[:search])
