@@ -14,7 +14,7 @@
 		<div class="main-container">
 			<div class="diet-section clearfix">
 				<div class="left-diet-section">
-					<%= month_calendar events: [@diets, @favorites] do |date, diets| %>
+					<%= month_calendar events: @diets do |date, diets| %>
 						<%= date.day %><br>
 						
 						<% diets.each do |diet| %>

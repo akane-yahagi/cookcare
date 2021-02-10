@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 		@array_searches.each do |search|  # 分割したキーワードごとに検索
 			next if search == "" 
 			recipes = Recipe.joins(:ingredients)
-			@recipes += recipes.where('ingredients.name LIKE ? ', "%#{search}%").or(recipes.where('title LIKE ?', "%#{search}%"))
+			@recipes += recipes.where('ingredients.name LIKE ? ', "#{search}%").or(recipes.where('title LIKE ?', "#{search}%"))
 			#原則前方一致
 		end
 		@recipes.uniq!
