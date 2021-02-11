@@ -15,7 +15,8 @@
 			<div class="diet-section">
 				<div class="top-diet-section">
 					<%= form_for @diet do |f| %>
-						<%= f.text_field :title, placeholder: "Memo", class: "record-blank"  %>
+						<%= f.text_field :title, placeholder: "Title", class: "record-blank" %>
+						<%= f.text_field :place, placeholder: "Place", class: "record-blank" %>
 						<%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d"), class: "record-btn" %>
 						<%= f.submit "Save", class: "record-save-btn" %><br>
 						<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
@@ -28,21 +29,21 @@
 						<%= date.day %><br>
 						
 						<% diets.each do |diet| %>
-							<%= diet.title %><br>
+							<%= link_to diet.title, "/diets/#{diet.id}" %><br>
 							<% diet.categories.each do |category| %>
 								<div class="show-category-on">
 									<%= category.name %>
 								</div>
 							<% end %>
 						<% end %>
-						
 						<% @favorites.each do |favorite| %>
 							<% if favorite.start_time == date %>
-								<%= "自炊" %>
+								<%= link_to "According to the recipe", "/recipes/#{favorite.recipe.id}" %>
 								<% favorite.recipe.categories.each do |category| %>
-									<%= category.name %>
+									<div class="show-category-on">
+										<%= category.name %>
+									</div>
 								<% end %>
-								<%= favorite.recipe.title %>
 							<% end %>
 						<% end %>
 					<% end %>

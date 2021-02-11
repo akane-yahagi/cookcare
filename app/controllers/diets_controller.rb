@@ -17,6 +17,9 @@ class DietsController < ApplicationController
 		end
 	end
 	
+	def show
+	end
+	
 	private
 	def diet_params
 		params.require(:diet).permit(:recipe_id, :title, :place, :start_time, category_ids: [], category_diets_attributes: [:category_id]).merge(user_id: current_user.id)
