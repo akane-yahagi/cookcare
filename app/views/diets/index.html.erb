@@ -6,40 +6,47 @@
 				<%= @current_user.name %>
 				<%= link_to "Edit", edit_user_path(@current_user) %><br>
 				<%= link_to "Post Recipe", new_recipe_path %><br>
-				<%= link_to "Diet", diets_path %>
+				<%= link_to "Calendar", diets_path %>
 				<%= form_for :session, url: logout_path, method: :delete do |f| %>
 						<%= f.submit 'Log Out', class: 'btn' %>
 				<% end %>
 		</div>
 		<div class="main-container">
-			<div class="diet-section clearfix">
-				<div class="left-diet-section">
+			<div class="diet-section">
+				<div class="top-diet-section">
+					<%= form_for @diet do |f| %>
+						<%= f.text_field :title, placeholder: "Memo", class: "record-blank"  %>
+						<%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d"), class: "record-btn" %>
+						<%= f.submit "Save", class: "record-save-btn" %><br>
+						<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
+							<%= b.label { b.check_box + b.text } %>
+						<% end %>
+					<% end %>
+				</div>
+				<div class="bottom-diet-section">
 					<%= month_calendar events: @diets do |date, diets| %>
 						<%= date.day %><br>
 						
 						<% diets.each do |diet| %>
 							<%= diet.title %><br>
-							<%= diet.place %>
 							<% diet.categories.each do |category| %>
-								<%= category.name %>
+								<div class="show-category-on">
+									<%= category.name %>
+								</div>
+							<% end %>
+						<% end %>
+						
+						<% @favorites.each do |favorite| %>
+							<% if favorite.start_time == date %>
+								<%= "自炊" %>
+								<% favorite.recipe.categories.each do |category| %>
+									<%= category.name %>
+								<% end %>
+								<%= favorite.recipe.title %>
 							<% end %>
 						<% end %>
 					<% end %>
 				</div>
-				<div class="right-diet-section">
-					<div class="diet-create-section">
-						<%= form_for @diet do |f| %>
-							<%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d") %><br>
-							<%= f.text_field :title, placeholder: "title"  %><br>
-							<%= f.text_field :place, placeholder: "Place" %><br>
-							<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
-								<%= b.label { b.check_box + b.text } %><br>
-							<% end %>
-							<%= f.submit "Save", class: "new-btn" %>
-						<% end %>
-					</div>
-				</div>
-				
 			</div>
 		</div>
 </div>

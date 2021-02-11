@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 	get 'diets/index'
 	get 'favorites/index'
 	get 'sessions/new'
@@ -21,5 +22,7 @@ Rails.application.routes.draw do
 	end
 	
 	resources :diets
+	
+	resources :records
 	
 end

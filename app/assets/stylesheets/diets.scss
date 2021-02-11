@@ -7,33 +7,59 @@
     width: 98%;
     height: 97%;
     margin: 1%;
+    border: 1px solid pink;
     
-    .left-diet-section {
-        float: left;
-        width: 70%;
-        height: 100%;
+    .top-diet-section {
+        width: 46%;
+        height: 13%;
+        background-color: rgba(0, 0, 0, 0.05);
+        margin: 1% 2%;
+        
+        .record-blank {
+            height: 4vh;
+            width: 48%;
+            margin: 1% 2%;
+            border: none;
+            border-bottom: 1px solid #787878;
+            margin-bottom: 1%;
+            background-color: transparent;
+        }
+        
+        .record-btn {
+            font-size: 1.2rem;
+            color: #001e1d;
+            background-color: #f9bc60;
+            width: 25%;
+            height: 5vh;
+            border-radius: 30px;
+            padding: 1vh 1vw;
+            margin: 1% 2%;
+        }
+        
+        .record-save-btn {
+            font-size: 1.2rem;
+            color: #001e1d;
+            background-color: #f9bc60;
+            width: 12%;
+            height: 5vh;
+            border-radius: 30px;
+            padding: 1vh 1vw;
+            margin: 1% 2%;
+        }
     }
     
-    .right-diet-section {
-        width: 30%;
-        height: 100%;
-        float: left;
-        
-        .diet-create-section {
-            width: 96%;
-            height: 70%;
-            margin: 30% 2%;
-            border: 3.5px solid #abd1c6;
-            border-radius: 15px;
-        }
+    .bottom-diet-section {
+        width: 96%;
+        height: 81%;
+        // border: 1px solid gray;
+        margin: 1% 2%;
     }
 }
 
 .simple-calendar {
     border: 3.5px solid #004643;
-    margin: 2.5% 2%;
-    height: 95%;
-    width: 96%;
+    height: 100%;
+    width: 100%;
     
     .calendar-heading {
         height: 5%;
