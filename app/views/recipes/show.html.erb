@@ -6,6 +6,8 @@
                 <%= f.submit "Save", class: "new-btn" %>
                 <%= f.select :status, Favorite.localed_statuses, {}, class: 'favorite-btn' %>
                 <%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d"), class: "date-btn" %>
+            <% else %>
+                <%= link_to "Edit", edit_recipe_path, class: "new-btn" %>
             <% end %>
         </div>
         <div class="recipe-wrapper clearfix">

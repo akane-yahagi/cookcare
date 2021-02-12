@@ -76,6 +76,21 @@ class RecipesController < ApplicationController
 		redirect_to recipe_path, danger: "作成中のレシピを削除しました"
 	end
 	
+	def edit
+		@recipe = Recipe.includes(:ingredients).find(params[:id])
+		@categories = Category.all
+	end
+	
+	def update
+		@recipe = Recipe.find(params[:id])
+		
+		if @recipe.update(update_params)
+			redirect_to show_recipe_path
+		else
+			render :edit
+		end
+	end
+	
 	private
 	def recipe_params
 		params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
