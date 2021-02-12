@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	get 'diets/index'
+	get 'recipes/from_draft', to: 'recipes#from_draft'
 	get 'favorites/index'
 	get 'sessions/new'
 	root 'home#top'

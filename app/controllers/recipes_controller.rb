@@ -91,6 +91,10 @@ class RecipesController < ApplicationController
 		end
 	end
 	
+	def from_draft
+		@recipes = current_user.recipes.draft.order(created_at: :desc)
+	end
+	
 	private
 	def recipe_params
 		params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
@@ -100,5 +104,3 @@ class RecipesController < ApplicationController
 		params.fetch(:q, '').permit(:body)
 	end
 end
-
-# recipe_ingredients_attributes: RecipeIngredient::NESTED_ALLOWED_PARAMS, ingredients_attributes: Ingredient::NESTED_ALLOWED_PARAMS,
