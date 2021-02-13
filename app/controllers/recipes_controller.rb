@@ -77,8 +77,9 @@ class RecipesController < ApplicationController
 	end
 	
 	def edit
-		@recipe = Recipe.includes(:ingredients).find(params[:id])
+		@recipe = Recipe.find(params[:id])
 		@categories = Category.all
+		# binding.pry
 	end
 	
 	def update
@@ -102,5 +103,9 @@ class RecipesController < ApplicationController
 	
 	def search_recipe_params
 		params.fetch(:q, '').permit(:body)
+	end
+	
+	def update_params
+		params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
 	end
 end

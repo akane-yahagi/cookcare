@@ -1,6 +1,10 @@
 <div class="nested-fields">
 	<%= f.fields_for :ingredient do |ingredient| %>
-		<%= ingredient.text_field :name, placeholder: "ingredent", class: "ingredient-blank" %>
+		<% if f.object.ingredient.nil? %>
+		  	<%= ingredient.text_field :name, placeholder: "ingredent", class: "ingredient-blank" %>
+		<% else %>
+			<%= ingredient.text_field :name, placeholder: "ingredent", class: "ingredient-blank", value: f.object.ingredient.name %>
+		<% end %>
 	<% end %>
 	<%= f.text_field :quantity, placeholder: "quantity", class: "ingredient-blank" %>
 	<%= link_to_remove_association image_tag("minus_icon.png"), f %>

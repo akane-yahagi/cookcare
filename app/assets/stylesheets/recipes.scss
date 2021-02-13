@@ -55,12 +55,15 @@ body {
         height: 92vh;
         border-right: 2px solid #004643;
         float: left;
+        background-color: #abd1c6;
         
         .account-section {
-            height: 15%;
+            height: 12%;
             width: 96%;
             margin: 10% 2%;
-            border: 1px solid black;
+            background-color: #fffffe;
+            border-radius: 10px;
+            // border: 1px solid black;
 
             .account-info-section {
                 height: 50%;
@@ -68,21 +71,28 @@ body {
                 
                 .account-image {
                     height: 100%;
-                    width: 25%;
+                    width: 20%;
+                    margin: 0 2%;
                     border-radius: 100px;
                     object-fit: cover;
-                    margin: 0 2%;
                     float: left;
                 }
                 
-                .name-section {
-                    width: 67%;
-                    height: 100%;
-                    margin: 0 2%;
-                    font-size: 2rem;
-                    // line-height: 50px;
-                    padding: 5%;
+                .create-image {
+                    height: 64%;
+                    width: 12%;
+                    margin: 3% 6%;
                     float: left;
+                }
+                
+                .name-link {
+                    width: 76%;
+                    height: 100%;
+                    color: #004643;
+                    font-size: 2rem;
+                    line-height: 2;
+                    float: left;
+                    // border: 1px solid pink;
                 }
                 
             }
@@ -90,78 +100,144 @@ body {
             .follow-section {
                 height: 50%;
                 width: 100%;
-                padding-top: 2%;
-                padding-left: 31%;
-            }
-        }
-        
-        .create-section {
-            height: 10%;
-            width: 96%;
-            margin: 10% 2%;
-            border: 1px solid black;
-            
-            .create-title {
-                border: 1px solid gray;
-                width: 100%;
-                height: 50%;
-                font-size: 2rem;
-                padding-left: 2%;
-                padding-top: 1%;
-                color: #004643;
+                // display: grid;
+                // place-items: center;
                 
-            }
-            
-            .create-link {
-                height: 50%;
-                width: 100%;
-                padding-left: 20%;
-                padding-top: 3%;
-                border: 1px solid green;
+                .follow-link {
+                    display: block;
+                    height: 50%;
+                    width: 75%;
+                    margin-left: 25%;
+                    color: #004643;
+                    // border: 1px solid pink;
+                    // // line-height: 2;
+                }
             }
         }
         
         .list-section {
-            height: 25%;
+            height: 20%;
             width: 96%;
             margin: 10% 2%;
-            border: 1px solid black;
+            background-color: #fffffe;
+            border-radius: 10px;
+            // border: 1px solid black;
             
-            .list-title {
-                border: 1px solid gray;
+            .list-info-section {
+                height: 30%;
                 width: 100%;
-                height: 20%;
-                font-size: 2rem;
-                padding-left: 2%;
-                padding-top: 1%;
-                color: #004643;
+                
+                .list-image {
+                    height: 64%;
+                    width: 12%;
+                    margin: 3% 6%;
+                    float: left;
+                }
+                
+                .name-link {
+                    width: 76%;
+                    height: 100%;
+                    color: #004643;
+                    font-size: 2rem;
+                    line-height: 2;
+                    float: left;
+                    // border: 1px solid pink;
+                }
             }
             
-            .list-link {
-                border: 1px solid gray;
+            .list-links {
+                // border: 1px solid gray;
                 width: 100%;
-                height: 80%;
+                height: 70%;
+                
+                .list-link {
+                    display: block;
+                    height: 25%;
+                    width: 75%;
+                    margin-left: 25%;
+                    color: #004643;
+                    // border: 1px solid pink;
+                    // // line-height: 2;
+                }
             }
             
         }
         
         .diet-section {
-            height: 5%;
+            height: 6%;
             width: 96%;
             margin: 10% 2%;
             font-size: 2rem;
-            padding-left: 5%;
-            border: 1px solid black;
+            background-color: #fffffe;
+            border-radius: 10px;
+            // border: 1px solid black;
+            
+            .create-image {
+                height: 64%;
+                width: 12%;
+                margin: 3% 6%;
+                float: left;
+            }
+                
+            .name-link {
+                width: 76%;
+                height: 100%;
+                color: #004643;
+                font-size: 2rem;
+                line-height: 2;
+                float: left;
+                // border: 1px solid pink;
+            }
         }
         
-        .edit-recipe-section {
-            height: 5%;
+        .category-section {
+            height: 24%;
             width: 96%;
             margin: 10% 2%;
-            font-size: 2rem;
-            padding-left: 5%;
-            border: 1px solid black;
+            background-color: #fffffe;
+            border-radius: 10px;
+            // border: 1px solid black;
+            
+            .category-info-section {
+                height: 25%;
+                width: 100%;
+                
+                .list-image {
+                    height: 64%;
+                    width: 12%;
+                    margin: 3% 6%;
+                    float: left;
+                }
+                
+                .name-link {
+                    width: 76%;
+                    height: 100%;
+                    color: #004643;
+                    font-size: 2rem;
+                    line-height: 2;
+                    float: left;
+                    // border: 1px solid pink;
+                }
+            }
+            
+            .category-links {
+                // border: 1px solid gray;
+                width: 100%;
+                height: 75%;
+                
+                .category-link {
+                    display: block;
+                    height: 20%;
+                    width: 75%;
+                    margin-left: 25%;
+                    color: #004643;
+                    // border: 1px solid pink;
+                    // line-height: 2;
+                }
+            }
+            
         }
+
         .logout-btn {
             display: block;
             font-size: 1.5rem;
@@ -497,8 +573,8 @@ body {
     height: 15%;
     margin: 1%;
     float: left;
-    // background-color: #abd1c6;
-    background-color: rgba(0, 0, 0, 0.05);
+    border: 2px solid #abd1c6;
+    // background-color: rgba(0, 0, 0, 0.05);
 
     .index-single-image {
         width: 30%;

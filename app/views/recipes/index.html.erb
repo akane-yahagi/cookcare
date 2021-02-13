@@ -10,38 +10,55 @@
         <div class="account-section">
             <div class="account-info-section clearfix">
                 <%= image_tag @current_user.image_string, class: "account-image" %>
-                <div class="name-section">
-                    <%= link_to @current_user.name, edit_user_path(@current_user), :style=> "color: #004643;" %>
-                </div>
+                <%= link_to @current_user.name, edit_user_path(@current_user), {class: "name-link"} %>
             </div>
             <div class="follow-section">
-                <%= link_to "Followed : #", "#", :style=> "color: #004643;" %><br>
-                <%= link_to "Follower : #", "#", :style=> "color: #004643;" %>
+                <%= link_to "Followed : #", "#", {class: "follow-link"} %>
+                <%= link_to "Follower : #", "#", {class: "follow-link"} %>
             </div>
         </div>
-        <div class="create-section">
-            <div class="create-title">Post Recipe</div>
-            <div class="create-link">
-                <%= link_to "Create NEW", new_recipe_path, :style=> "color: #004643;" %>
-                <%= link_to "From Draft", recipes_from_draft_path, :style=> "color: #004643;" %>
+        <div class="account-section">
+            <div class="account-info-section clearfix">
+                <%= image_tag "green_pen.png", class: "create-image" %>
+                <%= link_to "Post Recipe", "#", {class: "name-link"} %>
+            </div>
+            <div class="follow-section">
+                <%= link_to "Create NEW", new_recipe_path, {class: "follow-link"} %>
+                <%= link_to "From Draft", recipes_from_draft_path, {class: "follow-link"} %>
             </div>
         </div>
         <div class="list-section">
-            <div class="list-title">Your List</div>
-            <div class="list-link">
-                <p>your published recipes</p>
-                <p>your favorites</p>
-                <p>your cooked</p>
-                <p>your follower</p>
+            <div class="list-info-section clearfix">
+                <%= image_tag "green_list.png", class: "list-image" %>
+                <%= link_to "Your Lists", "#", {class: "name-link"} %>
+            </div>
+            <div class="list-links">
+                <%= link_to "published", "#", {class: "list-link"} %>
+                <%= link_to "favorites", "#", {class: "list-link"} %>
+                <%= link_to "cooked", "#", {class: "list-link"} %>
+                <%= link_to "followers", "#", {class: "list-link"} %>
             </div>
             
         </div>
-        <div class="edit-recipe-section">
-            <%= link_to "Edit your recipes", "#", :style=> "color: #004643;" %>
+        <div class="diet-section clearfix">
+                <%= image_tag "green_calendar.png", class: "create-image" %>
+                <%= link_to "Calendar", diets_path, {class: "name-link"} %>
         </div>
-        <div class="diet-section">
-            <%= link_to "Calendar", diets_path, :style=> "color: #004643;" %>
+        <div class="category-section">
+            <div class="category-info-section clearfix">
+                <%= image_tag "green_category.png", class: "list-image" %>
+                <%= link_to "Categories", "#", {class: "name-link"} %>
+            </div>
+            <div class="category-links">
+                <%= link_to "published", "#", {class: "category-link"} %>
+                <%= link_to "favorites", "#", {class: "category-link"} %>
+                <%= link_to "cooked", "#", {class: "category-link"} %>
+                <%= link_to "followers", "#", {class: "category-link"} %>
+                <%= link_to "followers", "#", {class: "category-link"} %>
+            </div>
+            
         </div>
+        
         
         <%= form_for :session, url: logout_path, method: :delete do |f| %>
             <%= f.submit 'Log Out', class: 'logout-btn' %>
