@@ -110,3 +110,55 @@ body {
 		}
 	}
 }
+.edit-user-section {
+	width: 50%;
+	height: 96%;
+	margin: 1%;
+	background-color: rgba(0, 0, 0, 0.05);
+		
+	.left-account-image {
+		width: 20%;
+		height: 5%;
+		border-radius: 10px;
+		margin: 1%;
+		float: left;
+	}
+	
+	.edit-account-image {
+		width: 70%;
+		height: 5%;
+		margin: 8% 2%;
+		float: left;
+	}
+	
+	.left-user-text {
+		font-size: 2rem;
+		display: block;
+		width: 40%;
+		height: 10%;
+		margin: 1%;
+		// border: 1px solid pink;
+		float: left;
+		text-align: center;
+	}
+	
+	.right-user-blank {
+		font-size: 2rem;
+		width: 50%;
+		border: none;
+		border-bottom: 1px solid #787878;
+		background-color: transparent;
+		float: left;
+	}
+	
+	.create-btn {
+		display: block;
+		font-size: 1.5rem;
+		color: #001e1d;
+		background-color: #f9bc60;
+		width: 96%;
+		height: 10%;
+		border-radius: 30px;
+		margin: 2%;
+	}
+}

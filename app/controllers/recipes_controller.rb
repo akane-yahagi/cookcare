@@ -85,7 +85,7 @@ class RecipesController < ApplicationController
 	def update
 		@recipe = Recipe.find(params[:id])
 		
-		if @recipe.update(update_params)
+		if @recipe.update(recipe_params)
 			redirect_to show_recipe_path
 		else
 			render :edit
@@ -105,7 +105,4 @@ class RecipesController < ApplicationController
 		params.fetch(:q, '').permit(:body)
 	end
 	
-	def update_params
-		params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])
-	end
 end

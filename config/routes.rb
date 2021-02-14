@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
 
-	get 'diets/index'
-	get 'recipes/from_draft', to: 'recipes#from_draft'
-	get 'favorites/index'
-	get 'sessions/new'
 	root 'home#top'
+	get 'sessions/new'
 	
 	get '/login', to: 'sessions#new'
 	post '/login', to: 'sessions#create'
 	delete '/logout', to: 'sessions#destroy'
 	
+	get 'favorites/index'
 	resources :users
+	get 'recipes/from_draft', to: 'recipes#from_draft'
 	resources :recipes do
 		resources :favorites, only: [:create, :destroy]
 		collection do

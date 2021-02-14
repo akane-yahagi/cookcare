@@ -1,0 +1,93 @@
+<div class="nav">
+    <%= link_to "Cookcare", recipes_path, class: "title" %>
+    <%= form_with(url: search_recipes_path, local: true, method: :get) do |f| %>
+        <%= f.submit "Search", class: "new-btn" %>
+        <%= f.text_field :search, placeholder: "Search Recipes", class: "search-blank" %>
+    <% end %>
+</div>
+<div class="recipe-wrapper clearfix">
+    <div class="side-container">
+        <div class="account-section">
+            <div class="account-info-section clearfix">
+                <%= image_tag @current_user.image_string, class: "account-image" %>
+                <%= link_to @current_user.name, edit_user_path(@current_user), {class: "name-link"} %>
+            </div>
+            <div class="follow-section">
+                <%= link_to "Followed : #", "#", {class: "follow-link"} %>
+                <%= link_to "Follower : #", "#", {class: "follow-link"} %>
+            </div>
+        </div>
+        <div class="account-section">
+            <div class="account-info-section clearfix">
+                <%= image_tag "green_pen.png", class: "create-image" %>
+                <%= link_to "Post Recipe", "#", {class: "name-link"} %>
+            </div>
+            <div class="follow-section">
+                <%= link_to "Create NEW", new_recipe_path, {class: "follow-link"} %>
+                <%= link_to "From Draft", recipes_from_draft_path, {class: "follow-link"} %>
+            </div>
+        </div>
+        <div class="list-section">
+            <div class="list-info-section clearfix">
+                <%= image_tag "green_list.png", class: "list-image" %>
+                <%= link_to "Your Lists", "#", {class: "name-link"} %>
+            </div>
+            <div class="list-links">
+                <%= link_to "published", "#", {class: "list-link"} %>
+                <%= link_to "favorites", "#", {class: "list-link"} %>
+                <%= link_to "cooked", "#", {class: "list-link"} %>
+                <%= link_to "followers", "#", {class: "list-link"} %>
+            </div>
+            
+        </div>
+        <div class="diet-section clearfix">
+                <%= image_tag "green_calendar.png", class: "create-image" %>
+                <%= link_to "Calendar", diets_path, {class: "name-link"} %>
+        </div>
+        <div class="category-section">
+            <div class="category-info-section clearfix">
+                <%= image_tag "green_category.png", class: "list-image" %>
+                <%= link_to "Categories", "#", {class: "name-link"} %>
+            </div>
+            <div class="category-links">
+                <%= link_to "published", "#", {class: "category-link"} %>
+                <%= link_to "favorites", "#", {class: "category-link"} %>
+                <%= link_to "cooked", "#", {class: "category-link"} %>
+                <%= link_to "followers", "#", {class: "category-link"} %>
+                <%= link_to "followers", "#", {class: "category-link"} %>
+            </div>
+            
+        </div>
+        <%= form_for :session, url: logout_path, method: :delete do |f| %>
+            <%= f.submit 'Log Out', class: 'logout-btn' %>
+        <% end %>
+    </div>
+    <div class="main-container">
+        <div class="edit-user-section clearfix">
+            <%= form_for @user do |f| %>
+                <div class="clearfix">
+                    <%= image_tag @current_user.image_string, class: "left-account-image" %>
+                    <%= f.file_field :image_string, placeholder: "Photos", class: "edit-account-image" %>
+                </div>
+                <div class="edit-box clearfix">
+                    <p class="left-user-text">Name</p>
+                    <%= f.text_field :name, class: 'right-user-blank' %>
+                </div>
+                <div class="edit-box clearfix">
+                    <p class="left-user-text">Email</p>
+                    <%= f.text_field :email, class: 'right-user-blank' %>
+                </div>
+                <div class="edit-box clearfix">
+                    <p class="left-user-text">Password</p>
+                    <%= f.text_field :password, class: 'right-user-blank' %>
+                </div>
+                <div class="edit-box clearfix">
+                    <p class="left-user-text">Password Confirmation</p>
+                    <%= f.text_field :password_confirmation, class: 'right-user-blank' %>
+                </div>
+                <%= f.submit "Update your Account", class: 'create-btn' %>
+            <% end %>
+        </div>
+        
+    </div>
+</div>
