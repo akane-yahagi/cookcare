@@ -1,0 +1,73 @@
+<div class="nav">
+    <%= link_to "Cookcare", recipes_path, class: "title" %>
+    <%= form_with(url: search_recipes_path, local: true, method: :get) do |f| %>
+        <%= f.submit "Search", class: "new-btn" %>
+        <%= f.text_field :search, placeholder: "Search Recipes", class: "search-blank" %>
+    <% end %>
+</div>
+<div class="recipe-wrapper clearfix">
+    <div class="side-container">
+        <div class="account-section">
+            <div class="account-info-section clearfix">
+                <%= image_tag @current_user.image_string, class: "account-image" %>
+                <div class="name-section">
+                    <%= link_to @current_user.name, edit_user_path(@current_user), :style=> "color: #004643;" %>
+                </div>
+            </div>
+            <div class="follow-section">
+                <%= link_to "Followed : #", "#", :style=> "color: #004643;" %><br>
+                <%= link_to "Follower : #", "#", :style=> "color: #004643;" %>
+            </div>
+        </div>
+        <div class="create-section">
+            <div class="create-title">Post Recipe</div>
+            <div class="create-link">
+                <%= link_to "Create NEW", new_recipe_path, :style=> "color: #004643;" %>
+                <%= link_to "From Draft", "#", :style=> "color: #004643;" %>
+            </div>
+        </div>
+        <div class="list-section">
+            <div class="list-title">Your List</div>
+            <div class="list-link">
+                <p>your published recipes</p>
+                <p>your favorites</p>
+                <p>your cooked</p>
+                <p>your follower</p>
+            </div>
+            
+        </div>
+        <div class="edit-recipe-section">
+            <%= link_to "Edit your recipes", "#", :style=> "color: #004643;" %>
+        </div>
+        <div class="diet-section">
+            <%= link_to "Calendar", diets_path, :style=> "color: #004643;" %>
+        </div>
+        
+        <%= form_for :session, url: logout_path, method: :delete do |f| %>
+            <%= f.submit 'Log Out', class: 'logout-btn' %>
+        <% end %>
+    </div>
+    <div class="main-container">
+        <% @recipes.each do |recipe| %>
+            <div class="index-single clearfix">
+                <% if recipe.recipe_image? %>
+                    <%= image_tag recipe.recipe_image.url, class: "index-single-image" %>
+                <% else %>
+                    <%= image_tag "no_image.jpg", class: "index-single-image" %>
+                <% end %>
+                <div class="index-single-name">
+                    <%= link_to recipe.title, recipe_path(recipe), class: "index-single-title" %>
+                    <div class="index-single-info clearifix">
+                        <div class="index-single-favorite">
+                            <%= "Favorites: " + recipe.favorite_users.count.to_s %>
+                        </div>
+                        <div class="index-single-username">
+                            <%= "By " + recipe.user.name %>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

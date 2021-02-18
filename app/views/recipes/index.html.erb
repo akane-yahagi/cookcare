@@ -30,12 +30,12 @@
         <div class="list-section">
             <div class="list-info-section clearfix">
                 <%= image_tag "green_list.png", class: "list-image" %>
-                <%= link_to "Your Lists", "#", {class: "name-link"} %>
+                <div class="name-link">Your Lists</div>
             </div>
             <div class="list-links">
-                <%= link_to "published", "#", {class: "list-link"} %>
-                <%= link_to "favorites", "#", {class: "list-link"} %>
-                <%= link_to "cooked", "#", {class: "list-link"} %>
+                <%= link_to "published", recipes_published_path, {class: "list-link"} %>
+                <%= link_to "favorites", favorites_index_path, {class: "list-link"} %>
+                <%= link_to "cooked", favorites_cooked_path, {class: "list-link"} %>
                 <%= link_to "followers", "#", {class: "list-link"} %>
             </div>
             
@@ -76,7 +76,7 @@
                     <%= link_to recipe.title, recipe_path(recipe), class: "index-single-title" %>
                     <div class="index-single-info clearifix">
                         <div class="index-single-favorite">
-                            <%= "Favorites: " + recipe.favorite_users.count.to_s %>
+                            <%= "Favorites: " + recipe.favorites.favorite.count.to_s %>
                         </div>
                         <div class="index-single-username">
                             <%= "By " + recipe.user.name %>

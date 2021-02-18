@@ -1,9 +1,10 @@
 class FavoritesController < ApplicationController
 
-	before_action :set_recipe
+	before_action :set_recipe, only: [:create]
 	
 	def index
-		@favorite_recipes = current_user.favorite_recipes
+		@favorite_recipes = current_user.favorite_recipes.includes(:favorites)
+		@f_recipes = current_user.favorites.favorite
 	end
 	
 	def create
@@ -21,6 +22,12 @@ class FavoritesController < ApplicationController
 			redirect_to recipes_url, danger: "登録に失敗しました"
 		end
 	end
+	
+	def cooked
+		@favorite_recipes = current_user.favorite_recipes.includes(:favorites)
+		@f_recipes = current_user.favorites.cooked
+	end
+	
 	
 	private
 	

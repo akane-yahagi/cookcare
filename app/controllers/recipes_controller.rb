@@ -96,6 +96,10 @@ class RecipesController < ApplicationController
 		@recipes = current_user.recipes.draft.order(created_at: :desc)
 	end
 	
+	def published
+		@recipes = current_user.recipes.published.order(created_at: :desc)
+	end
+	
 	private
 	def recipe_params
 		params.require(:recipe).permit(Recipe::ALLOWED_PARAMS, steps_attributes: Step::NESTED_ALLOWED_PARAMS, recipe_categories_attributes: [:category_id])

@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 	delete '/logout', to: 'sessions#destroy'
 	
 	get 'favorites/index'
+	get 'favorites/cooked', to: 'favorites#cooked'
 	resources :users
+	get 'recipes/published', to: 'recipes#published'
 	get 'recipes/from_draft', to: 'recipes#from_draft'
 	resources :recipes do
 		resources :favorites, only: [:create, :destroy]

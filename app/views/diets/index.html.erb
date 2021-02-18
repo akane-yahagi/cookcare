@@ -38,7 +38,7 @@
 						<% end %>
 						<% @favorites.each do |favorite| %>
 							<% if favorite.start_time == date %>
-								<%= link_to favorite.recipe.title, "/recipes/#{favorite.recipe.id}" %>
+								<%= link_to "・" + favorite.recipe.title, "/recipes/#{favorite.recipe.id}" %><br>
 								<!--<% favorite.recipe.categories.each do |category| %>-->
 								<!--	<div class="show-category-on">-->
 								<!--		<%= category.name %>-->
