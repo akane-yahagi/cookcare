@@ -17,7 +17,24 @@ class DietsController < ApplicationController
 		end
 	end
 	
-	def show
+	def edit
+		@diet = Diet.find_by(id: params[:id])
+	end
+	
+	def update
+		@diet = Diet.find(params[:id])
+		
+		if @diet.update(diet_params)
+			redirect_to diets_path
+		else
+			render :edit
+		end
+	end
+	
+	def destroy
+		@diet = Diet.find_by(id: params[:id])
+		@diet.destroy
+		redirect_to diets_path, danger: "記録を削除しました"
 	end
 	
 	private

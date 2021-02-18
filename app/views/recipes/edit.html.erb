@@ -2,8 +2,9 @@
     <%= form_for @recipe do |f| %>
         <div class="nav">
             <%= link_to "Cookcare", recipes_path, class: "title" %>
-            <%= f.submit "Save", class: "new-btn" %>
+            <%= f.submit "Update", class: "new-btn" %>
             <%= f.select :status, Recipe.statuses.keys.to_a, {}, class: "status-btn" %>
+            <%= link_to "Delete", recipe_path(@recipe.id), {method: :delete, class: "recipe-delete-btn"} %>
         </div>
         <div class="recipe-wrapper clearfix">
             <div class="side-container"></div>

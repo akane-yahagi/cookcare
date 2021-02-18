@@ -29,21 +29,21 @@
 						<%= date.day %><br>
 						
 						<% diets.each do |diet| %>
-							<%= link_to diet.title, "/diets/#{diet.id}" %><br>
-							<% diet.categories.each do |category| %>
-								<div class="show-category-on">
-									<%= category.name %>
-								</div>
-							<% end %>
+							<%= link_to diet.title, "/diets/#{diet.id}/edit" %><br>
+							<!--<% diet.categories.each do |category| %>-->
+							<!--	<div class="show-category-on">-->
+							<!--		<%= category.name %>-->
+							<!--	</div>-->
+							<!--<% end %>-->
 						<% end %>
 						<% @favorites.each do |favorite| %>
 							<% if favorite.start_time == date %>
-								<%= link_to "According to the recipe", "/recipes/#{favorite.recipe.id}" %>
-								<% favorite.recipe.categories.each do |category| %>
-									<div class="show-category-on">
-										<%= category.name %>
-									</div>
-								<% end %>
+								<%= link_to favorite.recipe.title, "/recipes/#{favorite.recipe.id}" %>
+								<!--<% favorite.recipe.categories.each do |category| %>-->
+								<!--	<div class="show-category-on">-->
+								<!--		<%= category.name %>-->
+								<!--	</div>-->
+								<!--<% end %>-->
 							<% end %>
 						<% end %>
 					<% end %>

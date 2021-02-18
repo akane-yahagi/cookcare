@@ -71,9 +71,9 @@ class RecipesController < ApplicationController
 	end
 	
 	def destroy
-		@recipe = current_recipe
+		@recipe = Recipe.find_by(id: params[:id])
 		@recipe.destroy
-		redirect_to recipe_path, danger: "作成中のレシピを削除しました"
+		redirect_to recipes_path, danger: "レシピを削除しました"
 	end
 	
 	def edit
@@ -86,7 +86,7 @@ class RecipesController < ApplicationController
 		@recipe = Recipe.find(params[:id])
 		
 		if @recipe.update(recipe_params)
-			redirect_to show_recipe_path
+			redirect_to recipe_path(@recipe)
 		else
 			render :edit
 		end

@@ -20,7 +20,7 @@
         <div class="account-section">
             <div class="account-info-section clearfix">
                 <%= image_tag "green_pen.png", class: "create-image" %>
-                <%= link_to "Post Recipe", "#", {class: "name-link"} %>
+                <div class="name-link">Post Recipe</div>
             </div>
             <div class="follow-section">
                 <%= link_to "Create NEW", new_recipe_path, {class: "follow-link"} %>
@@ -44,20 +44,20 @@
                 <%= image_tag "green_calendar.png", class: "create-image" %>
                 <%= link_to "Calendar", diets_path, {class: "name-link"} %>
         </div>
-        <div class="category-section">
-            <div class="category-info-section clearfix">
-                <%= image_tag "green_category.png", class: "list-image" %>
-                <%= link_to "Categories", "#", {class: "name-link"} %>
-            </div>
-            <div class="category-links">
-                <%= link_to "published", "#", {class: "category-link"} %>
-                <%= link_to "favorites", "#", {class: "category-link"} %>
-                <%= link_to "cooked", "#", {class: "category-link"} %>
-                <%= link_to "followers", "#", {class: "category-link"} %>
-                <%= link_to "followers", "#", {class: "category-link"} %>
-            </div>
+        <!--<div class="category-section">-->
+        <!--    <div class="category-info-section clearfix">-->
+        <!--        <%= image_tag "green_category.png", class: "list-image" %>-->
+        <!--        <%= link_to "Categories", "#", {class: "name-link"} %>-->
+        <!--    </div>-->
+        <!--    <div class="category-links">-->
+        <!--        <%= link_to "published", "#", {class: "category-link"} %>-->
+        <!--        <%= link_to "favorites", "#", {class: "category-link"} %>-->
+        <!--        <%= link_to "cooked", "#", {class: "category-link"} %>-->
+        <!--        <%= link_to "followers", "#", {class: "category-link"} %>-->
+        <!--        <%= link_to "followers", "#", {class: "category-link"} %>-->
+        <!--    </div>-->
             
-        </div>
+        <!--</div>-->
         
         
         <%= form_for :session, url: logout_path, method: :delete do |f| %>

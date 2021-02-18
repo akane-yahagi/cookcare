@@ -1,0 +1,30 @@
+<div class="nav">
+		<%= link_to "Cookcare", recipes_path, class: "title" %>
+</div>
+<div class="recipe-wrapper clearfix">
+		<div class="side-container">
+				<%= @current_user.name %>
+				<%= link_to "Edit", edit_user_path(@current_user) %><br>
+				<%= link_to "Post Recipe", new_recipe_path %><br>
+				<%= link_to "Calendar", diets_path %>
+				<%= form_for :session, url: logout_path, method: :delete do |f| %>
+						<%= f.submit 'Log Out', class: 'btn' %>
+				<% end %>
+		</div>
+		<div class="main-container">
+			<div class="diet-index-section">
+				<div class="edit-diet-section">
+					<%= form_for @diet do |f| %>
+						<%= f.text_field :title, placeholder: "Title", class: "record-blank" %>
+						<%= f.text_field :place, placeholder: "Place", class: "record-blank" %>
+						<%= f.date_field :start_time, class: "record-btn" %><br>
+						<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
+							<%= b.label { b.check_box + b.text } %>
+						<% end %>
+						<%= f.submit "Update", class: "record-save-btn" %>
+						<%= link_to "Delete", diet_path(@diet.id), {method: :delete, class: "record-delete-btn"} %><br>
+					<% end %>
+				</div>
+			</div>
+		</div>
+</div>

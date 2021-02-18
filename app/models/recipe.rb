@@ -13,19 +13,19 @@ class Recipe < ApplicationRecord
     belongs_to :user
     
     has_many :recipe_ingredients
-    has_many :ingredients, through: :recipe_ingredients
+    has_many :ingredients, through: :recipe_ingredients, dependent: :destroy
     accepts_nested_attributes_for :recipe_ingredients, allow_destroy: true
     # accepts_nested_attributes_for :ingredients
     
     has_many :recipe_categories
-    has_many :categories, through: :recipe_categories
+    has_many :categories, through: :recipe_categories, dependent: :destroy
     accepts_nested_attributes_for :recipe_categories, allow_destroy: true
     # accepts_nested_attributes_for :categories
     
-    has_many :steps, dependent: :destroy
+    has_many :steps
     accepts_nested_attributes_for :steps, allow_destroy: true
     
     has_many :favorites
-    has_many :favorite_users, through: :favorites, source: 'user'
+    has_many :favorite_users, through: :favorites, source: 'user', dependent: :destroy
     
 end

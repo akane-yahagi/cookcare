@@ -240,13 +240,14 @@ body {
 
         .logout-btn {
             display: block;
-            font-size: 1.5rem;
-            color: #001e1d;
-            background-color: #f9bc60;
+            height: 6%;
             width: 96%;
-            height: 10%;
-            border-radius: 30px;
             margin: 10% 2%;
+            font-size: 2rem;
+            color: #001e1d;
+            border: 1px solid #001e1d;
+            background-color: #f9bc60;
+            border-radius: 30px;
         }
     }
     
@@ -302,7 +303,9 @@ body {
     width: 5vw;
     height: 5vh;
     border-radius: 30px;
-    padding: 1vh 1vw;
+    display: grid;
+    place-items: center;
+    
     margin-top: 1.5vh;
     margin-right: 1vw;
 }
@@ -641,4 +644,20 @@ body {
     padding: 1vh 1vw;
     margin-top: 1.5vh;
     margin-right: 1vw;
+}
+
+.recipe-delete-btn {
+    float: right;
+    font-size: 1.2rem;
+    color: #001e1d;
+    background-color: #e16162;
+    width: 5vw;
+    height: 5vh;
+    border: 1px solid #001e1d;
+    border-radius: 30px;
+    padding: 1vh 1vw;
+    margin-top: 1.5vh;
+    margin-right: 1vw;
+    display: grid;
+    place-items: center;
 }
