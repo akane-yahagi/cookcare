@@ -44,7 +44,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
-  gem 'dotenv-rails'
+  # gem 'dotenv-rails'
 end
 
 group :development do
@@ -91,4 +91,4 @@ gem 'enum_help'
 
 gem 'simple_calendar', '~> 2.0'
 
-gem 'fog-aws'
+# gem 'fog-aws'
