@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-	root 'home#top'
+	root 'home#index'
 	get 'sessions/new'
 	
 	get '/login', to: 'sessions#new'
@@ -24,5 +23,4 @@ Rails.application.routes.draw do
 	end
 	
 	resources :diets
-	
 end

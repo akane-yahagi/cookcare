@@ -1,4 +1,7 @@
 class DietsController < ApplicationController
+	
+	before_action :authenticate_user
+	
 	def index
 		@diets = Diet.where(user_id: current_user).order(start_time: "desc")
 		@diet = Diet.new

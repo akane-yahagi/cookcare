@@ -1,11 +1,7 @@
 class FavoritesController < ApplicationController
 
+	before_action :authenticate_user
 	before_action :set_recipe, only: [:create]
-	
-	def index
-		@favorite_recipes = current_user.favorite_recipes.includes(:favorites)
-		@f_recipes = current_user.favorites.favorite
-	end
 	
 	def create
 		@favorite = @recipe.favorites.new(favorite_params)
@@ -23,8 +19,13 @@ class FavoritesController < ApplicationController
 		end
 	end
 	
+	def index
+		@favorite_recipes = current_user.favorite_recipes.select(:id, :user_id,:title, :recipe_image, :status).distinct
+		@f_recipes = current_user.favorites.favorite.order(created_at: :desc)
+	end
+	
 	def cooked
-		@favorite_recipes = current_user.favorite_recipes.includes(:favorites)
+		@favorite_recipes = current_user.favorite_recipes.select(:id, :user_id,:title, :recipe_image, :status).distinct
 		@f_recipes = current_user.favorites.cooked
 	end
 	
@@ -38,4 +39,5 @@ class FavoritesController < ApplicationController
 	def favorite_params
 		params.required(:favorite).permit(:memo, :status, :start_time).merge(user_id: current_user.id, recipe_id: params[:recipe_id])
 	end
+
 end

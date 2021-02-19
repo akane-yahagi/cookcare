@@ -2,29 +2,57 @@
 		<%= link_to "Cookcare", recipes_path, class: "title" %>
 </div>
 <div class="recipe-wrapper clearfix">
-		<div class="side-container">
-				<%= @current_user.name %>
-				<%= link_to "Edit", edit_user_path(@current_user) %><br>
-				<%= link_to "Post Recipe", new_recipe_path %><br>
-				<%= link_to "Calendar", diets_path %>
-				<%= form_for :session, url: logout_path, method: :delete do |f| %>
-						<%= f.submit 'Log Out', class: 'btn' %>
-				<% end %>
-		</div>
-		<div class="main-container">
-			<div class="diet-index-section">
-				<div class="edit-diet-section">
-					<%= form_for @diet do |f| %>
-						<%= f.text_field :title, placeholder: "Title", class: "record-blank" %>
-						<%= f.text_field :place, placeholder: "Place", class: "record-blank" %>
-						<%= f.date_field :start_time, class: "record-btn" %><br>
-						<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
-							<%= b.label { b.check_box + b.text } %>
-						<% end %>
-						<%= f.submit "Update", class: "record-save-btn" %>
-						<%= link_to "Delete", diet_path(@diet.id), {method: :delete, class: "record-delete-btn"} %><br>
+    <div class="side-container">
+        <div class="account-section">
+            <div class="account-info-section clearfix">
+                <%= image_tag "icon.png", class: "create-image" %>
+                <div class="name-link"><%= @current_user.name %> </div>
+            </div>
+            <div class="user-tag-section">
+                <%= link_to "Edit Profile", edit_user_path(@current_user), {class: "tag-link"} %>
+            </div>
+        </div>
+        <div class="post-recipe-section">
+            <div class="recipe-info-section clearfix">
+                <%= image_tag "green_pen.png", class: "create-image" %>
+                <div class="name-link">Post Recipe</div>
+            </div>
+            <div class="recipe-tag-section">
+                <%= link_to "Create NEW", new_recipe_path, {class: "tag-link"} %>
+                <%= link_to "From Draft", recipes_from_draft_path, {class: "tag-link"} %>
+            </div>
+        </div>
+        <div class="list-section">
+            <div class="list-info-section clearfix">
+                <%= image_tag "green_list.png", class: "list-image" %>
+                <div class="name-link">Your Lists</div>
+            </div>
+            <div class="list-links">
+                <%= link_to "published", recipes_published_path, {class: "list-link"} %>
+                <%= link_to "favorites", favorites_index_path, {class: "list-link"} %>
+                <%= link_to "cooked", favorites_cooked_path, {class: "list-link"} %>
+            </div>
+            
+        </div>
+        <div class="diet-section clearfix">
+                <%= image_tag "green_calendar.png", class: "create-image" %>
+                <%= link_to "Calendar", diets_path, {class: "name-link"} %>
+        </div>
+    </div>
+	<div class="main-container">
+		<div class="diet-index-section">
+			<div class="edit-diet-section">
+				<%= form_for @diet do |f| %>
+					<%= f.text_field :title, placeholder: "Title", class: "record-blank" %>
+					<%= f.text_field :place, placeholder: "Place", class: "record-blank" %>
+					<%= f.date_field :start_time, class: "record-btn" %><br>
+					<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, include_hidden: false do |b| %>
+						<%= b.label { b.check_box + b.text } %>
 					<% end %>
-				</div>
+					<%= f.submit "Update", class: "record-save-btn" %>
+					<%= link_to "Delete", diet_path(@diet.id), {method: :delete, class: "record-delete-btn"} %><br>
+				<% end %>
 			</div>
 		</div>
+	</div>
 </div>

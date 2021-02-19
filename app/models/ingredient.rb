@@ -4,6 +4,8 @@ class Ingredient < ApplicationRecord
     #     where('name LIKE :value', { value: "#{sanitize_sql_like(name)}%"})
     # }
     
+    validates :name, presence: true, length: {maximum: 15}
+    
     NESTED_ALLOWED_PARAMS = [:id, :_destroy, :name ]
     has_many :recipe_ingredients, dependent: :destroy
     has_many :recipes, through: :recipe_ingredients

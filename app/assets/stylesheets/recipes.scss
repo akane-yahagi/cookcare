@@ -58,7 +58,7 @@ body {
         background-color: #abd1c6;
         
         .account-section {
-            height: 12%;
+            height: 10%;
             width: 96%;
             margin: 10% 2%;
             background-color: #fffffe;
@@ -66,17 +66,8 @@ body {
             // border: 1px solid black;
 
             .account-info-section {
-                height: 50%;
+                height: 60%;
                 width: 100%;
-                
-                .account-image {
-                    height: 100%;
-                    width: 20%;
-                    margin: 0 2%;
-                    border-radius: 100px;
-                    object-fit: cover;
-                    float: left;
-                }
                 
                 .create-image {
                     height: 64%;
@@ -97,13 +88,63 @@ body {
                 
             }
             
-            .follow-section {
+            .user-tag-section {
+                height: 40%;
+                width: 100%;
+                // display: grid;
+                // place-items: center;
+                
+                .tag-link {
+                    display: block;
+                    height: 100%;
+                    width: 75%;
+                    margin-left: 25%;
+                    color: #004643;
+                    // border: 1px solid pink;
+                    // // line-height: 2;
+                }
+            }
+        }
+
+        
+        .post-recipe-section {
+            height: 12%;
+            width: 96%;
+            margin: 10% 2%;
+            background-color: #fffffe;
+            border-radius: 10px;
+            // border: 1px solid black;
+
+            .recipe-info-section {
+                height: 50%;
+                width: 100%;
+                
+                .create-image {
+                    height: 64%;
+                    width: 12%;
+                    margin: 3% 6%;
+                    float: left;
+                }
+                
+                .name-link {
+                    width: 76%;
+                    height: 100%;
+                    color: #004643;
+                    font-size: 2rem;
+                    line-height: 2;
+                    float: left;
+                    // border: 1px solid pink;
+                }
+                
+            }
+            
+            .recipe-tag-section {
                 height: 50%;
                 width: 100%;
                 // display: grid;
                 // place-items: center;
                 
-                .follow-link {
+                .tag-link {
                     display: block;
                     height: 50%;
                     width: 75%;
@@ -116,7 +157,7 @@ body {
         }
         
         .list-section {
-            height: 20%;
+            height: 18%;
             width: 96%;
             margin: 10% 2%;
             background-color: #fffffe;
@@ -124,8 +165,9 @@ body {
             // border: 1px solid black;
             
             .list-info-section {
-                height: 30%;
+                height: 35%;
                 width: 100%;
+                // border: 1px solid black;
                 
                 .list-image {
                     height: 64%;
@@ -148,11 +190,11 @@ body {
             .list-links {
                 // border: 1px solid gray;
                 width: 100%;
-                height: 70%;
+                height: 65%;
                 
                 .list-link {
                     display: block;
-                    height: 25%;
+                    height: 33%;
                     width: 75%;
                     margin-left: 25%;
                     color: #004643;
@@ -188,54 +230,6 @@ body {
                 float: left;
                 // border: 1px solid pink;
             }
-        }
-        
-        .category-section {
-            height: 24%;
-            width: 96%;
-            margin: 10% 2%;
-            background-color: #fffffe;
-            border-radius: 10px;
-            // border: 1px solid black;
-            
-            .category-info-section {
-                height: 25%;
-                width: 100%;
-                
-                .list-image {
-                    height: 64%;
-                    width: 12%;
-                    margin: 3% 6%;
-                    float: left;
-                }
-                
-                .name-link {
-                    width: 76%;
-                    height: 100%;
-                    color: #004643;
-                    font-size: 2rem;
-                    line-height: 2;
-                    float: left;
-                    // border: 1px solid pink;
-                }
-            }
-            
-            .category-links {
-                // border: 1px solid gray;
-                width: 100%;
-                height: 75%;
-                
-                .category-link {
-                    display: block;
-                    height: 20%;
-                    width: 75%;
-                    margin-left: 25%;
-                    color: #004643;
-                    // border: 1px solid pink;
-                    // line-height: 2;
-                }
-            }
-            
         }
 
         .logout-btn {

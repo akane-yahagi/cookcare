@@ -1,18 +1,34 @@
 <body>
-    <div class="users-new-wrapper clearfix">
-        <div class="users-left-container">
-            <div class="users-left-text">
+    <div class="top-wrapper clearfix">
+        <div class="left-container">
+            <div class="left-text">
                 <p>Search for your dishes</p>
                 <p>Share your recipes</p>
                 <p>Record your eating habits</p>
             </div>
         </div>
         
-        <div class="users-right-container">
-            <div class="greeting">
-                <%= link_to 'Welcome to Cookcare', root_url, :style=>"color:#fffffe;" %>
+        <div class="right-container">
+            <div class="login clearfix">
+                <%= form_for :session, url: login_path do |f| %>
+                    <div class="login-info">
+                        <%= f.label :email %>
+                        <%= f.text_field :email, class: "blank" %>
+                    </div>
+                    <div class="login-info">
+                        <%= f.label :password %><br>
+                        <%= f.password_field :password, class: "blank" %>
+                    </div>
+                    <div class="btn-section">
+                        <%= f.submit 'Log in', class: 'mini-btn' %>
+                    </div>
+                <% end %>
             </div>
-            <div class="users-home-image clearfix">
+            
+            <div class="greeting">
+                <p>Welcome to Cookcare</p>
+            </div>
+            <div class="home-image clearfix">
                 <div class="left-home-container top-container">
                     <div class="home-info clearfix">
                         <%= image_tag "green_pen.png", class: "home-icon" %>
@@ -55,28 +71,16 @@
                         cookedボタンにより作った料理を<br>
                         カレンダーに反映でき、<br>
                         日々の食事を記録できます<br>
+                        
+                        
                     </div>
                 </div>
             </div>
-            <%= form_for @user do |f| %>
-                <div class="users-confirm clearfix">
-                    <div class="confirm-info-left">
-                        <%= f.label :name, class: "users-text" %><br>
-                        <%= f.text_field :name, class: 'users-blank' %><br>
-                        <%= f.label :email, class: "users-text" %><br>
-                        <%= f.text_field :email, class: 'users-blank' %>
-                    </div>
-                    <div class="confirm-info-right">
-                        <%= f.label :password, class: "users-text" %><br>
-                        <%= f.password_field :password, class: 'users-blank' %><br>
-                        <%= f.label :password_confirmation, class: "users-text" %><br>
-                        <%= f.password_field :password_confirmation, class: 'users-blank' %>
-                    </div>
-                </div>
-                <div class="users-account-section">
-                    <%= f.submit "Create an Account", class: 'btn' %>
-                </div>
-            <% end %>
+            <div class="account-section">
+                <p>Cookcareをはじめよう</p>
+                <%= link_to 'Create an Account', new_user_path, class: "btn" %>
+                <%= link_to 'Sign In', sessions_new_path, class: "btn" %>
+            </div>
         </div>
     </div>
 </body>

@@ -7,7 +7,43 @@
             <%= link_to "Delete", recipe_path(@recipe.id), {method: :delete, class: "recipe-delete-btn"} %>
         </div>
         <div class="recipe-wrapper clearfix">
-            <div class="side-container"></div>
+            <div class="side-container">
+                <div class="account-section">
+                    <div class="account-info-section clearfix">
+                        <%= image_tag "icon.png", class: "create-image" %>
+                        <div class="name-link"><%= @current_user.name %> </div>
+                    </div>
+                    <div class="user-tag-section">
+                        <%= link_to "Edit Profile", edit_user_path(@current_user), {class: "tag-link"} %>
+                    </div>
+                </div>
+                <div class="post-recipe-section">
+                    <div class="recipe-info-section clearfix">
+                        <%= image_tag "green_pen.png", class: "create-image" %>
+                        <div class="name-link">Post Recipe</div>
+                    </div>
+                    <div class="recipe-tag-section">
+                        <%= link_to "Create NEW", new_recipe_path, {class: "tag-link"} %>
+                        <%= link_to "From Draft", recipes_from_draft_path, {class: "tag-link"} %>
+                    </div>
+                </div>
+                <div class="list-section">
+                    <div class="list-info-section clearfix">
+                        <%= image_tag "green_list.png", class: "list-image" %>
+                        <div class="name-link">Your Lists</div>
+                    </div>
+                    <div class="list-links">
+                        <%= link_to "published", recipes_published_path, {class: "list-link"} %>
+                        <%= link_to "favorites", favorites_index_path, {class: "list-link"} %>
+                        <%= link_to "cooked", favorites_cooked_path, {class: "list-link"} %>
+                    </div>
+                    
+                </div>
+                <div class="diet-section clearfix">
+                        <%= image_tag "green_calendar.png", class: "create-image" %>
+                        <%= link_to "Calendar", diets_path, {class: "name-link"} %>
+                </div>
+            </div>
             <div class="main-container">
                 <div class="recipe-section clearfix">
                     <div class="recipe-left-section">

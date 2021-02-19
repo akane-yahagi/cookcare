@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+	
+	before_action :authenticate_user, only: [:edit, :update]
+	
 	def new
 		@user = User.new
 	end
@@ -23,7 +26,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		
 		if @user.update(user_params)
-			redirect_to show_recipe_path
+			redirect_to recipes_path
 		else
 			render :edit
 		end

@@ -7,28 +7,60 @@
 </div>
 <div class="recipe-wrapper clearfix">
     <div class="side-container">
-        <%= @current_user.name %>
-        <%= link_to "Edit", edit_user_path(@current_user) %><br>
-        <%= link_to "Post Recipe", new_recipe_path %>
-        <%= form_for :session, url: logout_path, method: :delete do |f| %>
-            <%= f.submit 'Log Out', class: 'btn' %>
-        <% end %>
+        <div class="account-section">
+            <div class="account-info-section clearfix">
+                <%= image_tag "icon.png", class: "create-image" %>
+                <div class="name-link"><%= @current_user.name %> </div>
+            </div>
+            <div class="user-tag-section">
+                <%= link_to "Edit Profile", edit_user_path(@current_user), {class: "tag-link"} %>
+            </div>
+        </div>
+        <div class="post-recipe-section">
+            <div class="recipe-info-section clearfix">
+                <%= image_tag "green_pen.png", class: "create-image" %>
+                <div class="name-link">Post Recipe</div>
+            </div>
+            <div class="recipe-tag-section">
+                <%= link_to "Create NEW", new_recipe_path, {class: "tag-link"} %>
+                <%= link_to "From Draft", recipes_from_draft_path, {class: "tag-link"} %>
+            </div>
+        </div>
+        <div class="list-section">
+            <div class="list-info-section clearfix">
+                <%= image_tag "green_list.png", class: "list-image" %>
+                <div class="name-link">Your Lists</div>
+            </div>
+            <div class="list-links">
+                <%= link_to "published", recipes_published_path, {class: "list-link"} %>
+                <%= link_to "favorites", favorites_index_path, {class: "list-link"} %>
+                <%= link_to "cooked", favorites_cooked_path, {class: "list-link"} %>
+            </div>
+            
+        </div>
+        <div class="diet-section clearfix">
+                <%= image_tag "green_calendar.png", class: "create-image" %>
+                <%= link_to "Calendar", diets_path, {class: "name-link"} %>
+        </div>
     </div>
     <div class="main-container">
         <% @recipes.each do |recipe| %>
-            <div class="index-single">
+            <div class="index-single clearfix">
                 <% if recipe.recipe_image? %>
                     <%= image_tag recipe.recipe_image.url, class: "index-single-image" %>
                 <% else %>
                     <%= image_tag "no_image.jpg", class: "index-single-image" %>
                 <% end %>
-                <%= link_to recipe.title, recipe_path(recipe), class: "index-single-title" %>
-                <div class="index-single-info clearfix">
-                    <div class="index-single-favorite">
-                        <%= "Favorites: " + recipe.favorite_users.count.to_s %>
-                    </div>
-                    <div class="index-single-username">
-                        <%= "By " + recipe.user.name %>
+                <div class="index-single-name">
+                    <%= link_to recipe.title, recipe_path(recipe), class: "index-single-title" %>
+                    <div class="index-single-info clearifix">
+                        <div class="index-single-favorite">
+                            <%= "Favorites: " + recipe.favorites.favorite.count.to_s %>
+                        </div>
+                        <div class="index-single-username">
+                            <%= "By " + recipe.user.name %>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

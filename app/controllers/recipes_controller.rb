@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 	
-	autocomplete :ingredient, :name, full: true
+	before_action :authenticate_user
 	
 	def index
 		@recipes = Recipe.published.order(created_at: :desc).includes(:user, :favorite_users)
@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
 		@array_searches.each do |search|  # 分割したキーワードごとに検索
 			next if search == "" 
 			recipes = Recipe.joins(:ingredients)
-			@recipes += recipes.where('ingredients.name LIKE ? ', "#{search}%").or(recipes.where('title LIKE ?', "#{search}%"))
+			@recipes += recipes.where('ingredients.name LIKE ? ', "%#{search}%").or(recipes.where('title LIKE ?', "%#{search}%"))
 			#原則前方一致
 		end
 		@recipes.uniq!
@@ -70,12 +70,6 @@ class RecipesController < ApplicationController
 		@favorite_recipe = @recipe.favorites.find_by(user_id: current_user)
 	end
 	
-	def destroy
-		@recipe = Recipe.find_by(id: params[:id])
-		@recipe.destroy
-		redirect_to recipes_path, danger: "レシピを削除しました"
-	end
-	
 	def edit
 		@recipe = Recipe.find(params[:id])
 		@categories = Category.all
@@ -98,6 +92,12 @@ class RecipesController < ApplicationController
 	
 	def published
 		@recipes = current_user.recipes.published.order(created_at: :desc)
+	end
+	
+	def destroy
+		@recipe = Recipe.find_by(id: params[:id])
+		@recipe.destroy
+		redirect_to recipes_path, danger: "レシピを削除しました"
 	end
 	
 	private

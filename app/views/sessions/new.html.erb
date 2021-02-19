@@ -12,7 +12,54 @@
             <div class="greeting">
                 <%= link_to 'Welcome to Cookcare', root_url, :style=>"color:#fffffe;" %>
             </div>
-            <image class="sessions-home-image"></image>
+            <div class="sessions-home-image clearfix">
+                <div class="left-home-container top-container">
+                    <div class="home-info clearfix">
+                        <%= image_tag "green_pen.png", class: "home-icon" %>
+                        <div class="home-container-text">レシピ投稿機能</div>
+                    </div>
+                    <div class="home-contents">
+                        レシピを投稿することで<br>
+                        自分だけのレシピ本を<br>
+                        つくることができます<br>
+                    </div>
+                </div>
+                <div class="right-home-container top-container">
+                    <div class="home-info clearfix">
+                        <%= image_tag "green_search.png", class: "home-icon" %>
+                        <div class="home-container-text">レシピ検索機能</div>
+                    </div>
+                    <div class="home-contents">
+                        冷蔵庫にある材料、<br>
+                        食べたい料理名で<br>
+                        レシピ検索が可能です
+                    </div>
+                </div>
+                <div class="left-home-container">
+                    <div class="home-info clearfix">
+                        <%= image_tag "green_memo.png", class: "home-icon" %>
+                        <div class="home-container-text">アレンジ機能</div>
+                    </div>
+                    <div class="home-contents">
+                        参考にしたレシピに<br>
+                        memo書きすることで<br>
+                        自分流にアレンジできます
+                    </div>
+                </div>
+                <div class="right-home-container">
+                    <div class="home-info clearfix">
+                        <%= image_tag "green_calendar.png", class: "home-icon" %>
+                        <div class="home-container-text">食生活管理機能</div>
+                    </div>
+                    <div class="home-contents">
+                        cookedボタンにより作った料理を<br>
+                        カレンダーに反映でき、<br>
+                        日々の食事を記録できます<br>
+                        
+                        
+                    </div>
+                </div>
+            </div>
             <%= form_for :session, url: login_path do |f| %>
                 <div class="sessions-confirm clearfix">
                     <div class="sessions-info-left">

@@ -9,43 +9,39 @@
     <div class="side-container">
         <div class="account-section">
             <div class="account-info-section clearfix">
-                <%= image_tag @current_user.image_string, class: "account-image" %>
-                <div class="name-section">
-                    <%= link_to @current_user.name, edit_user_path(@current_user), :style=> "color: #004643;" %>
-                </div>
+                <%= image_tag "icon.png", class: "create-image" %>
+                <div class="name-link"><%= @current_user.name %> </div>
             </div>
-            <div class="follow-section">
-                <%= link_to "Followed : #", "#", :style=> "color: #004643;" %><br>
-                <%= link_to "Follower : #", "#", :style=> "color: #004643;" %>
+            <div class="user-tag-section">
+                <%= link_to "Edit Profile", edit_user_path(@current_user), {class: "tag-link"} %>
             </div>
         </div>
-        <div class="create-section">
-            <div class="create-title">Post Recipe</div>
-            <div class="create-link">
-                <%= link_to "Create NEW", new_recipe_path, :style=> "color: #004643;" %>
-                <%= link_to "From Draft", "#", :style=> "color: #004643;" %>
+        <div class="post-recipe-section">
+            <div class="recipe-info-section clearfix">
+                <%= image_tag "green_pen.png", class: "create-image" %>
+                <div class="name-link">Post Recipe</div>
+            </div>
+            <div class="recipe-tag-section">
+                <%= link_to "Create NEW", new_recipe_path, {class: "tag-link"} %>
+                <%= link_to "From Draft", recipes_from_draft_path, {class: "tag-link"} %>
             </div>
         </div>
         <div class="list-section">
-            <div class="list-title">Your List</div>
-            <div class="list-link">
-                <p>your published recipes</p>
-                <p>your favorites</p>
-                <p>your cooked</p>
-                <p>your follower</p>
+            <div class="list-info-section clearfix">
+                <%= image_tag "green_list.png", class: "list-image" %>
+                <div class="name-link">Your Lists</div>
+            </div>
+            <div class="list-links">
+                <%= link_to "published", recipes_published_path, {class: "list-link"} %>
+                <%= link_to "favorites", favorites_index_path, {class: "list-link"} %>
+                <%= link_to "cooked", favorites_cooked_path, {class: "list-link"} %>
             </div>
             
         </div>
-        <div class="edit-recipe-section">
-            <%= link_to "Edit your recipes", "#", :style=> "color: #004643;" %>
+        <div class="diet-section clearfix">
+                <%= image_tag "green_calendar.png", class: "create-image" %>
+                <%= link_to "Calendar", diets_path, {class: "name-link"} %>
         </div>
-        <div class="diet-section">
-            <%= link_to "Calendar", diets_path, :style=> "color: #004643;" %>
-        </div>
-        
-        <%= form_for :session, url: logout_path, method: :delete do |f| %>
-            <%= f.submit 'Log Out', class: 'logout-btn' %>
-        <% end %>
     </div>
     <div class="main-container">
         <% @recipes.each do |recipe| %>
