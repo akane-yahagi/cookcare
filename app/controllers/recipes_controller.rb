@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 	before_action :authenticate_user
 	
 	def index
-		@recipes = Recipe.published.order(created_at: :desc).includes(:user, :favorite_users)
+		@recipes = Recipe.published.order(updated_at: :desc).includes(:user, :favorite_users)
 	end
 	
 	def search
