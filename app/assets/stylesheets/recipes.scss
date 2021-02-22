@@ -95,13 +95,29 @@ body {
                 // place-items: center;
                 
                 .tag-link {
-                    display: block;
+                    display: inline-block;
                     height: 100%;
                     width: 75%;
                     margin-left: 25%;
                     color: #004643;
                     // border: 1px solid pink;
                     // // line-height: 2;
+                }
+                
+                .hover {
+                    display: none;
+                }
+                
+                a:hover .tag-link {
+                    display: none;
+                }
+                
+                a:hover .hover {
+                    display: inline-block;
+                    height: 100%;
+                    width: 75%;
+                    margin-left: 25%;
+                    color: #004643;
                 }
             }
         }
@@ -145,13 +161,29 @@ body {
                 // place-items: center;
                 
                 .tag-link {
-                    display: block;
+                    display: inline-block;
                     height: 50%;
                     width: 75%;
                     margin-left: 25%;
                     color: #004643;
                     // border: 1px solid pink;
                     // // line-height: 2;
+                }
+                
+                .hover {
+                    display: none;
+                }
+                
+                a:hover .tag-link {
+                    display: none;
+                }
+                
+                a:hover .hover {
+                    display: inline-block;
+                    height: 50%;
+                    width: 75%;
+                    margin-left: 25%;
+                    color: #004643;
                 }
             }
         }
@@ -193,13 +225,29 @@ body {
                 height: 65%;
                 
                 .list-link {
-                    display: block;
+                    display: inline-block;
                     height: 33%;
                     width: 75%;
                     margin-left: 25%;
                     color: #004643;
                     // border: 1px solid pink;
                     // // line-height: 2;
+                }
+                
+                .hover {
+                    display: none;
+                }
+                
+                a:hover .list-link {
+                    display: none;
+                }
+                
+                a:hover .hover {
+                    display: inline-block;
+                    height: 33%;
+                    width: 75%;
+                    margin-left: 25%;
+                    color: #004643;
                 }
             }
             
@@ -222,6 +270,7 @@ body {
             }
                 
             .name-link {
+                display: inline-block;
                 width: 76%;
                 height: 100%;
                 color: #004643;
@@ -229,6 +278,24 @@ body {
                 line-height: 2;
                 float: left;
                 // border: 1px solid pink;
+            }
+            
+            .hover {
+                display: none;
+            }
+                
+            a:hover .name-link {
+                display: none;
+            }
+            
+            a:hover .hover {
+                display: inline-block;
+                width: 76%;
+                height: 100%;
+                color: #004643;
+                font-size: 2rem;
+                line-height: 2;
+                float: left;
             }
         }
 
