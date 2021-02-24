@@ -17,7 +17,7 @@
                     </div>
                     <div class="login-info">
                         <%= f.label :password %><br>
-                        <%= f.password_field :password, class: "blank" %>
+                        <%= f.password_field :password, class: "blank", placeholder: "8文字以上12文字以下の英数混合" %>
                     </div>
                     <div class="btn-section">
                         <%= f.submit 'Log in', class: 'mini-btn' %>
@@ -79,7 +79,7 @@
             <div class="account-section">
                 <p>Cookcareをはじめよう</p>
                 <%= link_to 'Create an Account', new_user_path, class: "btn" %>
-                <%= link_to 'Sign In', sessions_new_path, class: "btn" %>
+                <%= link_to 'Log In', sessions_new_path, class: "btn" %>
             </div>
         </div>
     </div>
