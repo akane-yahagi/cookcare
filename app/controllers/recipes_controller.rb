@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
 		redirect_to recipes_path if params[:search] == ""
 		@array_searches = params[:search].split(/[[:blank:]]+/)
 		@recipes = []
+		#eachをmapに修正する
 		@array_searches.each do |search|  # 分割したキーワードごとに検索
 			next if search == "" 
 			recipes = Recipe.joins(:ingredients)

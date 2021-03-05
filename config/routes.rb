@@ -5,14 +5,12 @@ Rails.application.routes.draw do
 	get '/login', to: 'sessions#new'
 	post '/login', to: 'sessions#create'
 	delete '/logout', to: 'sessions#destroy'
-	
-	get 'favorites/index'
-	get 'favorites/cooked', to: 'favorites#cooked'
+
 	resources :users
-	get 'recipes/published', to: 'recipes#published'
-	get 'recipes/from_draft', to: 'recipes#from_draft'
-	resources :recipes do
-		resources :favorites, only: [:create, :destroy]
+	# get 'recipes/published', to: 'recipes#published'
+	# get 'recipes/from_draft', to: 'recipes#from_draft'
+	resources :recipes do 
+		resource :favorites, only: [:create, :destroy]
 		collection do
 			get 'search'
 		end
@@ -23,4 +21,5 @@ Rails.application.routes.draw do
 	end
 	
 	resources :diets
+	
 end
