@@ -1,0 +1,43 @@
+<div class="recipe-wrapper clearfix">
+    <div class="side-container">
+        <div class="account-section">
+            <div class="account-info-section clearfix">
+                <%= image_tag "icon.png", class: "create-image" %>
+                <div class="name-link"><%= @current_user.name %> </div>
+            </div>
+            <div class="user-tag-section">
+                <%= link_to edit_user_path(@current_user) do %><span class="tag-link">Edit Profile</span><span class="hover">プロフィール編集</span><% end %>
+            </div>
+        </div>
+        <div class="post-recipe-section">
+            <div class="recipe-info-section clearfix">
+                <%= image_tag "green_pen.png", class: "create-image" %>
+                <div class="name-link">Post Recipe</div>
+            </div>
+            <div class="recipe-tag-section">
+                <%= link_to new_recipe_path do %><span class="tag-link">Create NEW</span><span class="hover">新規投稿</span><% end %><br>
+                <%= link_to recipes_from_draft_path do %><span class="tag-link">From Draft</span><span class="hover">一時保存から</span><% end %>
+            </div>
+        </div>
+        <div class="list-section">
+            <div class="list-info-section clearfix">
+                <%= image_tag "green_list.png", class: "list-image" %>
+                <div class="name-link">Your Lists</div>
+            </div>
+            <div class="list-links">
+                <%= link_to recipes_published_path do %><span class="list-link">Published</span><span class="hover">投稿済み</span><% end %><br>
+                <%= link_to "#" do %><span class="list-link">Favorites</span><span class="hover">お気に入り</span><% end %><br>
+                <%= link_to "#" do %><span class="list-link">Follows</span><span class="hover">フォローのレシピ</span><% end %><br>                
+            </div>
+            
+        </div>
+        <div class="diet-section clearfix">
+                <%= image_tag "green_calendar.png", class: "create-image" %>
+                <%= link_to diets_path do %><span class="name-link">Calendar</span><span class="hover">カレンダー</span><% end %><br>
+        </div>
+        
+        <%= form_for :session, url: logout_path, method: :delete do |f| %>
+            <%= f.submit 'Log Out', class: 'logout-btn' %>
+        <% end %>
+    </div>
+</div>
