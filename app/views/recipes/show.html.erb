@@ -1,141 +1,105 @@
 <body>
-    <%= form_for [@recipe, @favorite], url: recipe_favorites_path(@recipe), method: :post do |f| %>
-        <div class="nav">
-            <%= link_to "Cookcare", recipes_path, class: "title" %>
-            <% unless @recipe.user_id == @current_user.id %>
-                <%= f.submit "Save", class: "new-btn" %>
-                <%= f.select :status, Favorite.localed_statuses, {}, class: 'favorite-btn' %>
-                <%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d"), class: "date-btn" %>
+    <div class="nav">
+        <%= link_to "Cookcare", recipes_path, class: "title" %>
+        <% unless @recipe.user_id == @current_user.id %>
+            <% if !@recipe.favorite_users.include?(current_user) %>
+                <%= link_to "お気に入り登録", recipe_favorites_path(recipe_id: @recipe.id), {method: :post, class: "favorite-btn"} %>
             <% else %>
-                <%= link_to "Edit", edit_recipe_path, {class: "new-btn"} %>
+                <%= link_to "お気に入り解除", recipe_favorites_path(recipe_id: @recipe.id), {method: :delete, class: "favorite-btn"} %>
             <% end %>
+        <% else %>
+            <%= link_to "Edit", edit_recipe_path, {class: "new-btn"} %>
+        <% end %>
+    </div>
+    <div class="recipe-wrapper clearfix">
+        <div class="side-container">
+            <%= render template: "layouts/sidecontainer.html.erb" %>
         </div>
-        <div class="recipe-wrapper clearfix">
-            <div class="side-container">
-                <div class="account-section">
-                    <div class="account-info-section clearfix">
-                        <%= image_tag "icon.png", class: "create-image" %>
-                        <div class="name-link"><%= @current_user.name %> </div>
-                    </div>
-                    <div class="user-tag-section">
-                        <%= link_to edit_user_path(@current_user) do %><span class="tag-link">Edit Profile</span><span class="hover">プロフィール編集</span><% end %>
-                    </div>
-                </div>
-                <div class="post-recipe-section">
-                    <div class="recipe-info-section clearfix">
-                        <%= image_tag "green_pen.png", class: "create-image" %>
-                        <div class="name-link">Post Recipe</div>
-                    </div>
-                    <div class="recipe-tag-section">
-                        <%= link_to new_recipe_path do %><span class="tag-link">Create NEW</span><span class="hover">新規投稿</span><% end %><br>
-                        <%= link_to recipes_from_draft_path do %><span class="tag-link">From Draft</span><span class="hover">一時保存から</span><% end %>
-                    </div>
-                </div>
-                <div class="list-section">
-                    <div class="list-info-section clearfix">
-                        <%= image_tag "green_list.png", class: "list-image" %>
-                        <div class="name-link">Your Lists</div>
-                    </div>
-                    <div class="list-links">
-                        <%= link_to recipes_published_path do %><span class="list-link">Published</span><span class="hover">投稿済み</span><% end %><br>
-                        <%= link_to favorites_index_path do %><span class="list-link">Favorites</span><span class="hover">お気に入り</span><% end %><br>
-                        <%= link_to favorites_cooked_path do %><span class="list-link">Cooked</span><span class="hover">調理済み</span><% end %><br>
-                    </div>
-                    
-                </div>
-                <div class="diet-section clearfix">
-                        <%= image_tag "green_calendar.png", class: "create-image" %>
-                        <%= link_to diets_path do %><span class="name-link">Calendar</span><span class="hover">カレンダー</span><% end %><br>
-                </div>
-            </div>
-            <div class="main-container">
-                <div class="recipe-section clearfix">
-                    <div class="recipe-left-section clearfix">
-                        <div class="show-title-box">
-                            <p>Title</p>
-                            <div class="show-title">
-                                <%= @recipe.title %>
-                            </div>
+        <div class="main-container">
+            <div class="recipe-section clearfix">
+                <div class="recipe-left-section clearfix">
+                    <div class="show-title-box">
+                        <p>Title</p>
+                        <div class="show-title">
+                            <%= @recipe.title %>
                         </div>
-                        <div class="show-username-box">
-                            <p>Username</p>
-                            <div class="show-username">
-                                <%= @recipe.user.name%>
-                            </div>
+                    </div>
+                    <div class="show-username-box">
+                        <p>Username</p>
+                        <div class="show-username">
+                            <%= @recipe.user.name%>
                         </div>
-                        <div class="info-box clearfix">
-                            <div class="image-box">
-                                <p class="show-image-text">Photo</p>
-                                <% if @recipe.recipe_image? %>
-                                    <%= image_tag @recipe.recipe_image.url, class: "show-image" %>
-                                <% else %>
-                                    <%= image_tag "no_image.jpg", class: "show-image" %>
-                                <% end %>
-                            </div>
-                            <% unless @recipe.user_id == @current_user.id %>
-                                <% if @recipe.favorite_users.include?(@current_user) %>
-                                    <div class="memo-box">
-                                        <p>Memo</p>
-                                        <%= f.text_area :memo, :value => @favorite_recipe.memo, class: "memo-blank" %>
-                                    </div>
-                                <% else %>
-                                    <div class="memo-box">
-                                        <p>Memo</p>
-                                        <%= f.text_area :memo, class: "memo-blank" %>
-                                    </div>
-                                <% end %>
+                    </div>
+                    <div class="info-box clearfix">
+                        <div class="image-box">
+                            <p class="show-image-text">Photo</p>
+                            <% if @recipe.recipe_image? %>
+                                <%= image_tag @recipe.recipe_image.url, class: "show-image" %>
+                            <% else %>
+                                <%= image_tag "no_image.jpg", class: "show-image" %>
+                            <% end %>
+                        </div>
+                        <% unless @recipe.user_id == @current_user.id %>
+                            <% if @recipe.favorite_users.include?(@current_user) %>
+                                <div class="memo-box">
+                                    <p>Memo</p>
+                                </div>
                             <% else %>
                                 <div class="memo-box">
-                                    <p>Memoじゃない何か</p>
+                                    <p>Memo</p>
                                 </div>
                             <% end %>
-                        </div>
-                        <div class="show-ingredients-box clearfix">
-                            <p>Ingredients</p>
-                            <% @recipe_ingredients.each do |recipe_ingredient| %>
-                                <div class="show-ingredient">
-                                    <%= recipe_ingredient.ingredient.name %>
-                                </div>
-                                <div class="show-quantity">
-                                    <%= recipe_ingredient.quantity %>
-                                </div>
-                            <% end %>
-                        </div>
+                        <% else %>
+                            <div class="memo-box">
+                                <p>Memoじゃない何か</p>
+                            </div>
+                        <% end %>
                     </div>
-                    
-                    <div class="recipe-right-section">
-                        <div class="category-box">
-                            <p>Category</p>
-                            <% a = 0 %>
-                            <% @categories.each do |category1| %>
-                                <% @recipe_categories.each do |recipe_category| %>
-                                    <% if category1.name == recipe_category.category.name %>
-                                        <div class="show-category-on">
-                                            <%= category1.name %>
-                                            <% a += 1 %>
-                                        </div>
-                                    <% end %>
-                                <% end %>
-                                <% if a == 0 %>
-                                    <div class="show-category-off">
+                    <div class="show-ingredients-box clearfix">
+                        <p>Ingredients</p>
+                        <% @recipe_ingredients.each do |recipe_ingredient| %>
+                            <div class="show-ingredient">
+                                <%= recipe_ingredient.ingredient.name %>
+                            </div>
+                            <div class="show-quantity">
+                                <%= recipe_ingredient.quantity %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                
+                <div class="recipe-right-section">
+                    <div class="category-box">
+                        <p>Category</p>
+                        <% a = 0 %>
+                        <% @categories.each do |category1| %>
+                            <% @recipe_categories.each do |recipe_category| %>
+                                <% if category1.name == recipe_category.category.name %>
+                                    <div class="show-category-on">
                                         <%= category1.name %>
+                                        <% a += 1 %>
                                     </div>
                                 <% end %>
-                                <% a = 0 %>
                             <% end %>
-                        </div>
-                        <div class="step-box">
-                            <p>Steps</p>
-                            <% @steps.each do |step| %>
-                                <div class="show-step">
-                                    <%= step.step %>
+                            <% if a == 0 %>
+                                <div class="show-category-off">
+                                    <%= category1.name %>
                                 </div>
                             <% end %>
-                        </div>
+                            <% a = 0 %>
+                        <% end %>
+                    </div>
+                    <div class="step-box">
+                        <p>Steps</p>
+                        <% @steps.each do |step| %>
+                            <div class="show-step">
+                                <%= step.step %>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
             </div>
         </div>
-    <% end %>
+    </div>
 <body>
     

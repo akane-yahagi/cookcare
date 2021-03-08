@@ -7,6 +7,9 @@
 </div>
 <div class="recipe-wrapper clearfix">
     <div class="side-container">
+        <%= form_for :session, url: logout_path, method: :delete do |f| %>
+            <%= f.submit 'Log Out', class: 'logout-btn' %>
+        <% end %>
         <%= render template: "layouts/sidecontainer.html.erb" %>
     </div>
     <div class="main-container">
@@ -21,7 +24,7 @@
                     <%= link_to recipe.title, recipe_path(recipe), class: "index-single-title" %>
                     <div class="index-single-info clearifix">
                         <div class="index-single-favorite">
-                            <%= "Favorites: " + recipe.favorites.favorite.count.to_s %>
+                            <%= "Favorites: " + recipe.favorites.count.to_s %>
                         </div>
                         <div class="index-single-username">
                             <%= "By " + recipe.user.name %>

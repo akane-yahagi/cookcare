@@ -35,9 +35,5 @@
                 <%= image_tag "green_calendar.png", class: "create-image" %>
                 <%= link_to diets_path do %><span class="name-link">Calendar</span><span class="hover">カレンダー</span><% end %><br>
         </div>
-        
-        <%= form_for :session, url: logout_path, method: :delete do |f| %>
-            <%= f.submit 'Log Out', class: 'logout-btn' %>
-        <% end %>
     </div>
 </div>

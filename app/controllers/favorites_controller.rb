@@ -1,27 +1,24 @@
 class FavoritesController < ApplicationController
 
 	before_action :authenticate_user
-	before_action :set_recipe, only: [:create]
+	before_action :set_recipe
 	
 	def create
-		@favorite = @recipe.favorites.new(favorite_params)
+		if @recipe.user_id != current_user.id
+			@favorite = @recipe.favorites.new(user_id: current_user.id)
 		# binding.pry
-		if @favorite.save
-			# if @favorite.cooked?
-			#   redirect_to recipes_url, success: "Cookedに登録"
-			# elsif @favorite.favorite?
-			#   redirect_to recipes_url, success: "favoritesに登録しました"
-			# else
-			#   redirect_to recipes_url, success: "not my favorite"
-			# end
-		else
-			redirect_to recipes_url, danger: "登録に失敗しました"
+			if @favorite.save
+				redirect_to recipe_url(@recipe), success: "お気に入りに登録"
+			else
+				redirect_to recipe_url(@recipe), danger: "お気に入りに登録に失敗しました"
+			end
 		end
 	end
 	
 	def destroy
-    	@favorite = Favorite.find_by(user_id: current_user.id, recipe_id: @recipe.id)
-    	@favorite.destroy
+		@favorite = Favorite.find_by(user_id: current_user.id)
+		@favorite.destroy
+		redirect_to recipe_url(@recipe), success: "お気に入りから解除"
 	end
 	
 	
@@ -43,7 +40,7 @@ class FavoritesController < ApplicationController
 	end
 	
 	def favorite_params
-		params.required(:favorite).permit(:memo, :status, :start_time).merge(user_id: current_user.id, recipe_id: params[:recipe_id])
+		params.required(:favorite).merge(user_id: current_user.id, recipe_id: params[:recipe_id])
 	end
 
 end
