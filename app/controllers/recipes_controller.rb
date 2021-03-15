@@ -69,7 +69,7 @@ class RecipesController < ApplicationController
 		@recipe_ingredients = @recipe.recipe_ingredients
 		@favorite = Favorite.new
 		@favorite_recipe = @recipe.favorites.find_by(user_id: current_user)
-		@memo_recipe = @recipe.memos.find_by(user_id: current_user)
+		@memo_recipe = @recipe.memos.order(updated_at: :desc).find_by(user_id: current_user)
 		@memo = Memo.new
 	end
 	
