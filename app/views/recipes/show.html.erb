@@ -1,105 +1,98 @@
 <body>
-    <div class="nav">
-        <%= link_to "Cookcare", recipes_path, class: "title" %>
-        <% unless @recipe.user_id == @current_user.id %>
-            <% if !@recipe.favorite_users.include?(current_user) %>
-                <%= link_to "お気に入り登録", recipe_favorites_path(recipe_id: @recipe.id), {method: :post, class: "favorite-btn"} %>
+    <%= form_for [@recipe, @memo], url: recipe_memos_path(@recipe), method: :post do |f| %>
+        <div class="nav">
+            <%= link_to "Cookcare", recipes_path, class: "title" %>
+            <% unless @recipe.user_id == @current_user.id %>
+                <% if !@recipe.favorite_users.include?(current_user) %>
+                    <%= link_to "お気に入り登録", recipe_favorites_path(recipe_id: @recipe.id), {method: :post, class: "favorite-btn"} %>
+                <% else %>
+                    <%= link_to "お気に入り解除", recipe_favorites_path(recipe_id: @recipe.id), {method: :delete, class: "favorite-btn"} %>
+                <% end %>
             <% else %>
-                <%= link_to "お気に入り解除", recipe_favorites_path(recipe_id: @recipe.id), {method: :delete, class: "favorite-btn"} %>
+                <%= link_to "Edit", edit_recipe_path, {class: "new-btn"} %>
             <% end %>
-        <% else %>
-            <%= link_to "Edit", edit_recipe_path, {class: "new-btn"} %>
-        <% end %>
-    </div>
-    <div class="recipe-wrapper clearfix">
-        <div class="side-container">
-            <%= render template: "layouts/sidecontainer.html.erb" %>
+            <%= f.submit "カレンダーに記録", class: "date-btn" %>
+            <%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d"), class: "date-btn" %>
         </div>
-        <div class="main-container">
-            <div class="recipe-section clearfix">
-                <div class="recipe-left-section clearfix">
-                    <div class="show-title-box">
-                        <p>Title</p>
-                        <div class="show-title">
-                            <%= @recipe.title %>
+        <div class="recipe-wrapper clearfix">
+            <div class="side-container">
+                <%= render template: "layouts/sidecontainer.html.erb" %>
+            </div>
+            <div class="main-container">
+                <div class="recipe-section clearfix">
+                    <div class="recipe-left-section clearfix">
+                        <div class="show-title-box">
+                            <p>Title</p>
+                            <div class="show-title">
+                                <%= @recipe.title %>
+                            </div>
                         </div>
-                    </div>
-                    <div class="show-username-box">
-                        <p>Username</p>
-                        <div class="show-username">
-                            <%= @recipe.user.name%>
+                        <div class="show-username-box">
+                            <p>Username</p>
+                            <div class="show-username">
+                                <%= @recipe.user.name%>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info-box clearfix">
-                        <div class="image-box">
-                            <p class="show-image-text">Photo</p>
-                            <% if @recipe.recipe_image? %>
-                                <%= image_tag @recipe.recipe_image.url, class: "show-image" %>
-                            <% else %>
-                                <%= image_tag "no_image.jpg", class: "show-image" %>
-                            <% end %>
-                        </div>
-                        <% unless @recipe.user_id == @current_user.id %>
-                            <% if @recipe.favorite_users.include?(@current_user) %>
-                                <div class="memo-box">
-                                    <p>Memo</p>
-                                </div>
-                            <% else %>
-                                <div class="memo-box">
-                                    <p>Memo</p>
-                                </div>
-                            <% end %>
-                        <% else %>
+                        <div class="info-box clearfix">
+                            <div class="image-box">
+                                <p class="show-image-text">Photo</p>
+                                <% if @recipe.recipe_image? %>
+                                    <%= image_tag @recipe.recipe_image.url, class: "show-image" %>
+                                <% else %>
+                                    <%= image_tag "no_image.jpg", class: "show-image" %>
+                                <% end %>
+                            </div>
                             <div class="memo-box">
-                                <p>Memoじゃない何か</p>
+                                <p>Memo</p>
+                                <%= f.text_area :memo, :value => @memo_recipe.memo, class: "memo-blank" %>
                             </div>
-                        <% end %>
+                        </div>
+                        <div class="show-ingredients-box clearfix">
+                            <p>Ingredients</p>
+                            <% @recipe_ingredients.each do |recipe_ingredient| %>
+                                <div class="show-ingredient">
+                                    <%= recipe_ingredient.ingredient.name %>
+                                </div>
+                                <div class="show-quantity">
+                                    <%= recipe_ingredient.quantity %>
+                                </div>
+                            <% end %>
+                        </div>
                     </div>
-                    <div class="show-ingredients-box clearfix">
-                        <p>Ingredients</p>
-                        <% @recipe_ingredients.each do |recipe_ingredient| %>
-                            <div class="show-ingredient">
-                                <%= recipe_ingredient.ingredient.name %>
-                            </div>
-                            <div class="show-quantity">
-                                <%= recipe_ingredient.quantity %>
-                            </div>
-                        <% end %>
-                    </div>
-                </div>
-                
-                <div class="recipe-right-section">
-                    <div class="category-box">
-                        <p>Category</p>
-                        <% a = 0 %>
-                        <% @categories.each do |category1| %>
-                            <% @recipe_categories.each do |recipe_category| %>
-                                <% if category1.name == recipe_category.category.name %>
-                                    <div class="show-category-on">
+                    
+                    <div class="recipe-right-section">
+                        <div class="category-box">
+                            <p>Category</p>
+                            <% a = 0 %>
+                            <% @categories.each do |category1| %>
+                                <% @recipe_categories.each do |recipe_category| %>
+                                    <% if category1.name == recipe_category.category.name %>
+                                        <div class="show-category-on">
+                                            <%= category1.name %>
+                                            <% a += 1 %>
+                                        </div>
+                                    <% end %>
+                                <% end %>
+                                <% if a == 0 %>
+                                    <div class="show-category-off">
                                         <%= category1.name %>
-                                        <% a += 1 %>
                                     </div>
                                 <% end %>
+                                <% a = 0 %>
                             <% end %>
-                            <% if a == 0 %>
-                                <div class="show-category-off">
-                                    <%= category1.name %>
+                        </div>
+                        <div class="step-box">
+                            <p>Steps</p>
+                            <% @steps.each do |step| %>
+                                <div class="show-step">
+                                    <%= step.step %>
                                 </div>
                             <% end %>
-                            <% a = 0 %>
-                        <% end %>
-                    </div>
-                    <div class="step-box">
-                        <p>Steps</p>
-                        <% @steps.each do |step| %>
-                            <div class="show-step">
-                                <%= step.step %>
-                            </div>
-                        <% end %>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <% end %>
 <body>
     

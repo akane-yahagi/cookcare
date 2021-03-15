@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	get 'recipes/from_draft', to: 'recipes#from_draft'
 	resources :recipes do 
 		resource :favorites, only: [:create, :destroy]
+		resource :memos, only: [:create]		
 		collection do
 			get 'search'
 		end

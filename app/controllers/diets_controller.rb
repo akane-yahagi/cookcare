@@ -5,7 +5,7 @@ class DietsController < ApplicationController
 	def index
 		@diets = Diet.where(user_id: current_user).order(start_time: "desc")
 		@diet = Diet.new
-		@favorites = current_user.favorites
+		@memos = current_user.memos
 		# binding.pry
 	end
 	

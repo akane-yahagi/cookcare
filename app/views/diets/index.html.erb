@@ -25,10 +25,10 @@
 					<% diets.each do |diet| %>
 						<%= link_to "・" + diet.title, "/diets/#{diet.id}/edit" %><br>
 					<% end %>
-					<% @favorites.each do |favorite| %>
-						<% if favorite.start_time == date %>
-							<%= link_to "・" + favorite.recipe.title, "/recipes/#{favorite.recipe.id}" %><br>
-							<!--<% favorite.recipe.categories.each do |category| %>-->
+					<% @memos.each do |memo| %>
+						<% if memo.start_time == date %>
+							<%= link_to "・" + memo.recipe.title, "/recipes/#{memo.recipe.id}" %><br>
+							<!--<% memo.recipe.categories.each do |category| %>-->
 							<!--	<div class="show-category-on">-->
 							<!--		<%= category.name %>-->
 							<!--	</div>-->
