@@ -42,10 +42,17 @@
                                     <%= image_tag "no_image.jpg", class: "show-image" %>
                                 <% end %>
                             </div>
-                            <div class="memo-box">
-                                <p>Memo</p>
-                                <%= f.text_area :memo, :value => @memo_recipe.memo, class: "memo-blank" %>
-                            </div>
+                            <% if @recipe.memo_users.include?(@current_user) %>
+                                <div class="memo-box">
+                                    <p>Memo</p>
+                                    <%= f.text_area :memo, :value => @memo_recipe.memo, class: "memo-blank" %>
+                                </div>
+                            <% else %>
+                                <div class="memo-box">
+                                    <p>Memo</p>
+                                    <%= f.text_area :memo, class: "memo-blank" %>
+                                </div>
+                            <% end %>
                         </div>
                         <div class="show-ingredients-box clearfix">
                             <p>Ingredients</p>
