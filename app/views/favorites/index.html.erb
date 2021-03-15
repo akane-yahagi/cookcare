@@ -1,0 +1,35 @@
+<div class="nav">
+    <%= link_to "Cookcare", recipes_path, class: "title" %>
+    <%= form_with(url: search_recipes_path, local: true, method: :get) do |f| %>
+        <%= f.submit "Search", class: "new-btn" %>
+        <%= f.text_field :search, placeholder: "Search Recipes", class: "search-blank" %>
+    <% end %>
+</div>
+<div class="recipe-wrapper clearfix">
+    <div class="side-container">
+        <%= render template: "layouts/sidecontainer.html.erb" %>
+    </div>
+    <div class="main-container">
+        <% @favorite_recipes.each do |recipe| %>
+            <div class="index-single clearfix">
+                <% if recipe.recipe_image? %>
+                    <%= image_tag recipe.recipe_image.url, class: "index-single-image" %>
+                <% else %>
+                    <%= image_tag "no_image.jpg", class: "index-single-image" %>
+                <% end %>
+                <div class="index-single-name">
+                    <%= link_to recipe.title, recipe_path(recipe), class: "index-single-title" %>
+                    <div class="index-single-info clearifix">
+                        <div class="index-single-favorite">
+                            <%= "Favorites: " + recipe.favorites.favorite.count.to_s %>
+                        </div>
+                        <div class="index-single-username">
+                            <%= "By " + recipe.user.name %>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'memos/index'
 	root 'home#index'
 	get 'sessions/new'
 	
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 	delete '/logout', to: 'sessions#destroy'
 
 	resources :users
+	get 'favorites/index', to: 'favorites#index'
 	get 'recipes/published', to: 'recipes#published'
 	get 'recipes/from_draft', to: 'recipes#from_draft'
 	resources :recipes do 

@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
 
 	before_action :authenticate_user
-	before_action :set_recipe
+	before_action :set_recipe, only: [:create, :destroy]
 	
 	def create
 		if @recipe.user_id != current_user.id
@@ -22,16 +22,9 @@ class FavoritesController < ApplicationController
 	end
 	
 	
-	# def index
-	# 	@favorite_recipes = current_user.favorite_recipes.select(:id, :user_id,:title, :recipe_image, :status).distinct
-	# 	@f_recipes = current_user.favorites.favorite.order(created_at: :desc)
-	# end
-	
-	# def cooked
-	# 	@favorite_recipes = current_user.favorite_recipes.select(:id, :user_id,:title, :recipe_image, :status).distinct
-	# 	@f_recipes = current_user.favorites.cooked
-	# end
-	
+	def index
+		@favorite_recipes = current_user.favorite_recipes
+	end
 	
 	private
 	

@@ -28,4 +28,7 @@ class Recipe < ApplicationRecord
     has_many :favorites
     has_many :favorite_users, through: :favorites, source: 'user', dependent: :destroy
     
+    has_many :memos
+    has_many :memo_users, through: :memos, source: 'user', dependent: :destroy
+    
 end
